@@ -1,0 +1,52 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "titulo",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "descripcion",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "coordenadaX",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "coordenadaY",
+            "fieldType": "Long",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "duracion",
+            "fieldType": "Double",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "qr",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "unique"
+            ]
+        }
+    ],
+    "changelogDate": "20200322214001",
+    "dto": "no",
+    "searchEngine": false,
+    "service": "no",
+    "entityTableName": "ubicaciones",
+    "databaseType": "sql",
+    "readOnly": false,
+    "jpaMetamodelFiltering": false,
+    "pagination": "infinite-scroll"
+}

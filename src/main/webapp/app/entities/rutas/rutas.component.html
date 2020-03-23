@@ -1,0 +1,69 @@
+<div>
+    <h2 id="page-heading">
+        <span>Rutas</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-rutas" [routerLink]="['/rutas/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span>
+            Create a new Rutas
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="rutas?.length === 0">
+        <span>No rutas found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="rutas?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span>ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="titulo"><span>Titulo</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="duracion"><span>Duracion</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="temporada"><span>Temporada</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="presupuesto"><span>Presupuesto</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="descripcion"><span>Descripcion</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let rutas of rutas ;trackBy: trackId">
+                    <td><a [routerLink]="['/rutas', rutas.id, 'view']">{{ rutas.id }}</a></td>
+                    <td>{{ rutas.titulo }}</td>
+                    <td>{{ rutas.duracion }}</td>
+                    <td>{{ rutas.temporada }}</td>
+                    <td>{{ rutas.presupuesto }}</td>
+                    <td>{{ rutas.descripcion }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/rutas', rutas.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/rutas', rutas.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(rutas)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

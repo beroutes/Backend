@@ -1,0 +1,195 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-usuarios-heading">Create or edit a Usuarios</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_nombre">Nombre</label>
+                    <input type="text" class="form-control" name="nombre" id="field_nombre"
+                           formControlName="nombre"/>
+                    <div *ngIf="editForm.get('nombre')!.invalid && (editForm.get('nombre')!.dirty || editForm.get('nombre')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nombre')?.errors?.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nombre')?.errors?.minlength">
+                        This field is required to be at least 3 characters.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nombre')?.errors?.maxlength">
+                        This field cannot be longer than 20 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_apellidos">Apellidos</label>
+                    <input type="text" class="form-control" name="apellidos" id="field_apellidos"
+                           formControlName="apellidos"/>
+                    <div *ngIf="editForm.get('apellidos')!.invalid && (editForm.get('apellidos')!.dirty || editForm.get('apellidos')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('apellidos')?.errors?.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('apellidos')?.errors?.minlength">
+                        This field is required to be at least 5 characters.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('apellidos')?.errors?.maxlength">
+                        This field cannot be longer than 30 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_email">Email</label>
+                    <input type="text" class="form-control" name="email" id="field_email"
+                           formControlName="email"/>
+                    <div *ngIf="editForm.get('email')!.invalid && (editForm.get('email')!.dirty || editForm.get('email')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('email')?.errors?.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('email')?.errors?.minlength">
+                        This field is required to be at least 5 characters.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('email')?.errors?.maxlength">
+                        This field cannot be longer than 30 characters.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('email')?.errors?.pattern">
+                            This field should follow pattern for "Email".
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_usuario">Usuario</label>
+                    <input type="text" class="form-control" name="usuario" id="field_usuario"
+                           formControlName="usuario"/>
+                    <div *ngIf="editForm.get('usuario')!.invalid && (editForm.get('usuario')!.dirty || editForm.get('usuario')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('usuario')?.errors?.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('usuario')?.errors?.minlength">
+                        This field is required to be at least 6 characters.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('usuario')?.errors?.maxlength">
+                        This field cannot be longer than 20 characters.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('usuario')?.errors?.pattern">
+                            This field should follow pattern for "Usuario".
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_password">Password</label>
+                    <input type="text" class="form-control" name="password" id="field_password"
+                           formControlName="password"/>
+                    <div *ngIf="editForm.get('password')!.invalid && (editForm.get('password')!.dirty || editForm.get('password')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('password')?.errors?.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('password')?.errors?.minlength">
+                        This field is required to be at least 8 characters.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('password')?.errors?.maxlength">
+                        This field cannot be longer than 30 characters.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('password')?.errors?.pattern">
+                            This field should follow pattern for "Password".
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_fechaRegistro">Fecha Registro</label>
+                    <div class="d-flex">
+                        <input id="field_fechaRegistro" type="datetime-local" class="form-control" name="fechaRegistro" formControlName="fechaRegistro" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('fechaRegistro')!.invalid && (editForm.get('fechaRegistro')!.dirty || editForm.get('fechaRegistro')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('fechaRegistro')?.errors?.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('fechaRegistro')?.errors?.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_ciudad">Ciudad</label>
+                    <input type="text" class="form-control" name="ciudad" id="field_ciudad"
+                           formControlName="ciudad"/>
+                    <div *ngIf="editForm.get('ciudad')!.invalid && (editForm.get('ciudad')!.dirty || editForm.get('ciudad')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('ciudad')?.errors?.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('ciudad')?.errors?.minlength">
+                        This field is required to be at least 3 characters.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('ciudad')?.errors?.maxlength">
+                        This field cannot be longer than 20 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_urlFotoPerfil">Url Foto Perfil</label>
+                    <input type="text" class="form-control" name="urlFotoPerfil" id="field_urlFotoPerfil"
+                           formControlName="urlFotoPerfil"/>
+                    <div *ngIf="editForm.get('urlFotoPerfil')!.invalid && (editForm.get('urlFotoPerfil')!.dirty || editForm.get('urlFotoPerfil')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('urlFotoPerfil')?.errors?.minlength">
+                        This field is required to be at least 5 characters.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('urlFotoPerfil')?.errors?.maxlength">
+                        This field cannot be longer than 100000 characters.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('urlFotoPerfil')?.errors?.pattern">
+                            This field should follow pattern for "Url Foto Perfil".
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
