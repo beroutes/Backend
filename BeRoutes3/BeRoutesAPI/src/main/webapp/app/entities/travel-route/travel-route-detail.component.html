@@ -1,0 +1,72 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="travelRoute">
+            <h2><span>Travel Route</span> {{ travelRoute.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Title Route</span></dt>
+                <dd>
+                    <span>{{ travelRoute.titleRoute }}</span>
+                </dd>
+                <dt><span>Destination</span></dt>
+                <dd>
+                    <span>{{ travelRoute.destination }}</span>
+                </dd>
+                <dt><span>Season</span></dt>
+                <dd>
+                    <span>{{ travelRoute.season }}</span>
+                </dd>
+                <dt><span>Budget</span></dt>
+                <dd>
+                    <span>{{ travelRoute.budget }}</span>
+                </dd>
+                <dt><span>Description Route</span></dt>
+                <dd>
+                    <span>{{ travelRoute.descriptionRoute }}</span>
+                </dd>
+                <dt><span>Created At</span></dt>
+                <dd>
+                    <span>{{ travelRoute.createdAt }}</span>
+                </dd>
+                <dt><span>Updated At</span></dt>
+                <dd>
+                    <span>{{ travelRoute.updatedAt }}</span>
+                </dd>
+                <dt><span>Duration</span></dt>
+                <dd>
+                    <div *ngIf="travelRoute.duration">
+                        <a [routerLink]="['/duration', travelRoute.duration?.id, 'view']">{{ travelRoute.duration?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span>Category</span></dt>
+                <dd>
+                    <div *ngIf="travelRoute.category">
+                        <a [routerLink]="['/category', travelRoute.category?.id, 'view']">{{ travelRoute.category?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span>User Profile</span></dt>
+                <dd>
+                    <div *ngIf="travelRoute.userProfile">
+                        <a [routerLink]="['/user-profile', travelRoute.userProfile?.id, 'view']">{{ travelRoute.userProfile?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/travel-route', travelRoute.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

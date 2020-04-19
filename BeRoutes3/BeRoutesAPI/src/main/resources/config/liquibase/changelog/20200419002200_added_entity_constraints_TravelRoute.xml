@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <!--
+        Added the constraints for entity TravelRoute.
+    -->
+    <changeSet id="20200419002200-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="duration_id"
+                                 baseTableName="travel_route"
+                                 constraintName="fk_travel_route_duration_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="duration"/>
+
+        <addForeignKeyConstraint baseColumnNames="category_id"
+                                 baseTableName="travel_route"
+                                 constraintName="fk_travel_route_category_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="category"/>
+
+        <addForeignKeyConstraint baseColumnNames="user_profile_id"
+                                 baseTableName="travel_route"
+                                 constraintName="fk_travel_route_user_profile_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="user_profile"/>
+
+    </changeSet>
+</databaseChangeLog>

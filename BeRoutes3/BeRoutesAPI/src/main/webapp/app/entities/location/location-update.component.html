@@ -1,0 +1,142 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-location-heading">Create or edit a Location</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_stepPosition">Step Position</label>
+                    <input type="number" class="form-control" name="stepPosition" id="field_stepPosition"
+                           formControlName="stepPosition"/>
+                    <div *ngIf="editForm.get('stepPosition')!.invalid && (editForm.get('stepPosition')!.dirty || editForm.get('stepPosition')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('stepPosition')?.errors?.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('stepPosition')?.errors?.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_titleLocation">Title Location</label>
+                    <input type="text" class="form-control" name="titleLocation" id="field_titleLocation"
+                           formControlName="titleLocation"/>
+                    <div *ngIf="editForm.get('titleLocation')!.invalid && (editForm.get('titleLocation')!.dirty || editForm.get('titleLocation')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('titleLocation')?.errors?.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_descriptionLocation">Description Location</label>
+                    <input type="text" class="form-control" name="descriptionLocation" id="field_descriptionLocation"
+                           formControlName="descriptionLocation"/>
+                    <div *ngIf="editForm.get('descriptionLocation')!.invalid && (editForm.get('descriptionLocation')!.dirty || editForm.get('descriptionLocation')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('descriptionLocation')?.errors?.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_xCoordinate">X Coordinate</label>
+                    <input type="number" class="form-control" name="xCoordinate" id="field_xCoordinate"
+                           formControlName="xCoordinate"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_yCoordinate">Y Coordinate</label>
+                    <input type="number" class="form-control" name="yCoordinate" id="field_yCoordinate"
+                           formControlName="yCoordinate"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_stepDuration">Step Duration</label>
+                    <input type="text" class="form-control" name="stepDuration" id="field_stepDuration"
+                           formControlName="stepDuration"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_qrCode">Qr Code</label>
+                    <input type="number" class="form-control" name="qrCode" id="field_qrCode"
+                           formControlName="qrCode"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_qrDescription">Qr Description</label>
+                    <input type="text" class="form-control" name="qrDescription" id="field_qrDescription"
+                           formControlName="qrDescription"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_createdAt">Created At</label>
+                    <div class="d-flex">
+                        <input id="field_createdAt" type="datetime-local" class="form-control" name="createdAt" formControlName="createdAt" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_updatedAt">Updated At</label>
+                    <div class="d-flex">
+                        <input id="field_updatedAt" type="datetime-local" class="form-control" name="updatedAt" formControlName="updatedAt" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_duration">Duration</label>
+                    <select class="form-control" id="field_duration" name="duration" formControlName="duration">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="durationOption.id === editForm.get('duration')!.value?.id ? editForm.get('duration')!.value : durationOption" *ngFor="let durationOption of durations; trackBy: trackById">{{ durationOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_photo">Photo</label>
+                    <select class="form-control" id="field_photo" name="photo" formControlName="photo">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="photoOption.id === editForm.get('photo')!.value?.id ? editForm.get('photo')!.value : photoOption" *ngFor="let photoOption of photos; trackBy: trackById">{{ photoOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_country">Country</label>
+                    <select class="form-control" id="field_country" name="country" formControlName="country">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="countryOption.id === editForm.get('country')!.value?.id ? editForm.get('country')!.value : countryOption" *ngFor="let countryOption of countries; trackBy: trackById">{{ countryOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_travelRoute">Travel Route</label>
+                    <select class="form-control" id="field_travelRoute" name="travelRoute" formControlName="travelRoute">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="travelRouteOption.id === editForm.get('travelRoute')!.value?.id ? editForm.get('travelRoute')!.value : travelRouteOption" *ngFor="let travelRouteOption of travelroutes; trackBy: trackById">{{ travelRouteOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

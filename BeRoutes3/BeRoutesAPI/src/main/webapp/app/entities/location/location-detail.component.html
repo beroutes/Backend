@@ -1,0 +1,90 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="location">
+            <h2><span>Location</span> {{ location.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Step Position</span></dt>
+                <dd>
+                    <span>{{ location.stepPosition }}</span>
+                </dd>
+                <dt><span>Title Location</span></dt>
+                <dd>
+                    <span>{{ location.titleLocation }}</span>
+                </dd>
+                <dt><span>Description Location</span></dt>
+                <dd>
+                    <span>{{ location.descriptionLocation }}</span>
+                </dd>
+                <dt><span>X Coordinate</span></dt>
+                <dd>
+                    <span>{{ location.xCoordinate }}</span>
+                </dd>
+                <dt><span>Y Coordinate</span></dt>
+                <dd>
+                    <span>{{ location.yCoordinate }}</span>
+                </dd>
+                <dt><span>Step Duration</span></dt>
+                <dd>
+                    <span>{{ location.stepDuration }}</span>
+                </dd>
+                <dt><span>Qr Code</span></dt>
+                <dd>
+                    <span>{{ location.qrCode }}</span>
+                </dd>
+                <dt><span>Qr Description</span></dt>
+                <dd>
+                    <span>{{ location.qrDescription }}</span>
+                </dd>
+                <dt><span>Created At</span></dt>
+                <dd>
+                    <span>{{ location.createdAt }}</span>
+                </dd>
+                <dt><span>Updated At</span></dt>
+                <dd>
+                    <span>{{ location.updatedAt }}</span>
+                </dd>
+                <dt><span>Duration</span></dt>
+                <dd>
+                    <div *ngIf="location.duration">
+                        <a [routerLink]="['/duration', location.duration?.id, 'view']">{{ location.duration?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span>Photo</span></dt>
+                <dd>
+                    <div *ngIf="location.photo">
+                        <a [routerLink]="['/photo', location.photo?.id, 'view']">{{ location.photo?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span>Country</span></dt>
+                <dd>
+                    <div *ngIf="location.country">
+                        <a [routerLink]="['/country', location.country?.id, 'view']">{{ location.country?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span>Travel Route</span></dt>
+                <dd>
+                    <div *ngIf="location.travelRoute">
+                        <a [routerLink]="['/travel-route', location.travelRoute?.id, 'view']">{{ location.travelRoute?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/location', location.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

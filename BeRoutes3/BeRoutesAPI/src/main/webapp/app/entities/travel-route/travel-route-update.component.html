@@ -1,0 +1,98 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-travel-route-heading">Create or edit a Travel Route</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_titleRoute">Title Route</label>
+                    <input type="text" class="form-control" name="titleRoute" id="field_titleRoute"
+                           formControlName="titleRoute"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_destination">Destination</label>
+                    <input type="text" class="form-control" name="destination" id="field_destination"
+                           formControlName="destination"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_season">Season</label>
+                    <select class="form-control" name="season" formControlName="season" id="field_season">
+                        <option value="SPRING">SPRING</option>
+                        <option value="SUMMER">SUMMER</option>
+                        <option value="AUTUMN">AUTUMN</option>
+                        <option value="WINTER">WINTER</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_budget">Budget</label>
+                    <input type="number" class="form-control" name="budget" id="field_budget"
+                           formControlName="budget"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_descriptionRoute">Description Route</label>
+                    <input type="text" class="form-control" name="descriptionRoute" id="field_descriptionRoute"
+                           formControlName="descriptionRoute"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_createdAt">Created At</label>
+                    <div class="d-flex">
+                        <input id="field_createdAt" type="datetime-local" class="form-control" name="createdAt" formControlName="createdAt" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_updatedAt">Updated At</label>
+                    <div class="d-flex">
+                        <input id="field_updatedAt" type="datetime-local" class="form-control" name="updatedAt" formControlName="updatedAt" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_duration">Duration</label>
+                    <select class="form-control" id="field_duration" name="duration" formControlName="duration">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="durationOption.id === editForm.get('duration')!.value?.id ? editForm.get('duration')!.value : durationOption" *ngFor="let durationOption of durations; trackBy: trackById">{{ durationOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_category">Category</label>
+                    <select class="form-control" id="field_category" name="category" formControlName="category">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="categoryOption.id === editForm.get('category')!.value?.id ? editForm.get('category')!.value : categoryOption" *ngFor="let categoryOption of categories; trackBy: trackById">{{ categoryOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_userProfile">User Profile</label>
+                    <select class="form-control" id="field_userProfile" name="userProfile" formControlName="userProfile">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userProfileOption.id === editForm.get('userProfile')!.value?.id ? editForm.get('userProfile')!.value : userProfileOption" *ngFor="let userProfileOption of userprofiles; trackBy: trackById">{{ userProfileOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

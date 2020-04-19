@@ -1,0 +1,29 @@
+{
+    "name": "City",
+    "fields": [
+        {
+            "fieldName": "cityName",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "country",
+            "otherEntityRelationshipName": "city",
+            "relationshipName": "country",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20200419001900",
+    "entityTableName": "city",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

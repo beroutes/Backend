@@ -1,0 +1,167 @@
+entity Region {
+	regionName String
+}
+entity City {
+	cityName String
+}
+
+entity Country {
+	countryName String required
+}
+
+entity Location {
+	stepPosition Long required,
+	titleLocation String required,
+	descriptionLocation String required,	
+    xCoordinate Long,
+    yCoordinate Long,
+    stepDuration String,    
+    qrCode Long,
+    qrDescription String,
+    createdAt Instant, 
+    updatedAt Instant
+}
+
+entity TravelRoute {
+	titleRoute String ,
+    destination String,
+    season Season,
+    budget Double,
+    descriptionRoute String, 
+    createdAt Instant, 
+    updatedAt Instant
+  
+    
+}
+
+entity UserProfile {
+	firstName String required ,
+	lastName String required ,
+	email String required ,
+    telephone Long,
+    userName String  ,
+	password String ,
+	age Integer,
+    biography String,
+    createdAt Instant, 
+    updatedAt Instant
+}
+entity Follower{
+	accepted Boolean
+}
+entity Duration {
+   	descriptionDuration String,
+    minutes Long,
+    hours Long,
+    days Long,
+    weeks Long,
+    years Long,
+}
+
+entity Category {
+	nameCategory String,
+	cheap Boolean, 
+    luxury Boolean,
+    lonely Boolean, 
+    friends Boolean, 
+    romantic Boolean, 
+    kids Boolean,
+    sport Boolean, 
+    relaxation Boolean, 
+    art Boolean, 
+    food Boolean, 
+    nature Boolean, 
+    city Boolean
+}
+
+entity Photo {
+	titlePhoto String,
+	descriptionPhoto String,
+    urlPhoto String
+}
+
+entity Valuation {
+	comment String,
+	rating Integer
+}
+
+
+
+
+enum Season {
+	SPRING, SUMMER, AUTUMN, WINTER
+}
+
+relationship OneToOne {
+	Country{region} to Region {country}
+}
+relationship OneToOne {
+	Country{city} to City {country}
+}
+relationship OneToOne {
+	Location{duration} to Duration
+}
+
+relationship ManyToOne {
+	Location{country} to Country
+}
+relationship OneToOne {
+	Location{photo} to Photo {location}
+}
+
+relationship OneToMany {
+	TravelRoute{location} to Location{travelRoute}
+}
+
+relationship OneToOne {
+	TravelRoute{duration} to Duration {travelRoute}
+}
+
+relationship OneToOne {
+	TravelRoute{category} to Category {travelRoute}
+}
+
+relationship OneToMany {
+	TravelRoute{photo} to Photo{travelRoute}
+}
+
+relationship OneToMany {
+	TravelRoute{valuation} to Valuation{travelRoute}
+}
+
+relationship OneToMany {
+	UserProfile{travelRoute} to TravelRoute{userProfile}
+}
+
+relationship OneToOne {
+	UserProfile{country} to Country
+}
+
+relationship OneToOne {
+	UserProfile{photo} to Photo {userProfile}
+}
+
+relationship OneToMany {
+	UserProfile{valuation} to Valuation{userProfile}
+}
+
+
+relationship ManyToMany {
+	UserProfile{follower} to Follower{userProfile}
+}
+
+
+////
+
+// Set pagination options
+
+paginate all with pagination
+
+// Use Data Transfert Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl 
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

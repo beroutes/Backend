@@ -1,0 +1,97 @@
+{
+    "name": "Location",
+    "fields": [
+        {
+            "fieldName": "stepPosition",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "titleLocation",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "descriptionLocation",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "xCoordinate",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "yCoordinate",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "stepDuration",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "qrCode",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "qrDescription",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "createdAt",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "updatedAt",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "duration",
+            "otherEntityRelationshipName": "location",
+            "relationshipName": "duration",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "photo",
+            "otherEntityRelationshipName": "location",
+            "relationshipName": "photo",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "country",
+            "otherEntityRelationshipName": "location",
+            "relationshipName": "country",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "travelRoute",
+            "otherEntityRelationshipName": "location",
+            "relationshipName": "travelRoute",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200419002100",
+    "entityTableName": "location",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}
