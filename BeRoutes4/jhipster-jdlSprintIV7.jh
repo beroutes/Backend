@@ -1,0 +1,273 @@
+//1
+
+entity Region {
+	//id Integer,
+	regionName String
+}
+
+//2
+
+entity City {
+	//id Integer,
+	cityName String
+}
+
+//3
+
+entity Country {
+	//id Integer,
+	countryName String,
+	//regionId Integer,
+	//cityId Integer
+}
+
+//4
+
+entity Location {
+	//id Integer,
+	//travelRouteId Integer,
+	stepPosition Integer,
+	titleLocation String,
+	descriptionLocation String,	
+    xCoordinate Double,
+    yCoordinate Double,
+    stepDuration String,
+    //durationId Integer,    
+    //qrId Integer,
+    qrDescription String,
+    createdAt LocalDate, 
+    updatedAt LocalDate,
+    //photoId Integer,
+    //countryId Integer
+}
+
+//5
+
+entity TravelRoute {
+	//id Integer,
+	titleRoute String ,
+    destination String,
+    //locationId Integer,
+    season Season,
+    budget Double,
+    durationSummary String,
+    //durationId Integer,
+    descriptionRouteSummary String, 
+    descriptionRoute String, 
+    createdAt LocalDate, 
+    updatedAt LocalDate,
+    //categoryId Integer,
+    //userProfileId Integer  
+    
+}
+
+//6
+
+entity UserProfile {
+	//id Integer,
+	firstName String,
+	lastName String,
+	email String,
+    telephone Integer,
+    userName String,
+	password String,
+	age Integer,
+    biography String,
+    //countryId Integer,
+    createdAt LocalDate, 
+    updatedAt LocalDate,
+    //photoId Integer
+}
+
+//7
+
+entity Follower{
+	//id Integer,
+	accepted Boolean,
+	//followerId Integer,
+	//userProfileId Integer
+}
+
+//8
+
+entity Duration {
+	//id Integer,
+   	descriptionDuration String,
+    minutes Integer,
+    hours Integer,
+    days Integer,
+    weeks Integer,
+    years Integer
+}
+
+//9
+
+entity Category {
+	//id Integer,
+	nameCategory String,
+	cheap Boolean, 
+    luxury Boolean,
+    lonely Boolean, 
+    friends Boolean, 
+    romantic Boolean, 
+    kids Boolean,
+    sport Boolean, 
+    relaxation Boolean, 
+    art Boolean, 
+    food Boolean, 
+    nature Boolean, 
+    city Boolean
+}
+
+//10
+
+entity Photo {
+	//id Integer,
+	titlePhoto String,
+	descriptionPhoto String,
+    urlPhoto String,
+    //travelRouteId Integer,
+    imageRoute Blob
+}
+
+//11
+
+entity Valuation {
+	//id Integer,
+	comment String,
+	rating Integer,
+	//travelRouteId Integer,
+	//userProfileId Integer
+}
+
+//12
+
+entity Qr {
+	//id Integer,
+	data1 Double,
+	data2 Double,
+	data3 Double
+}
+
+
+
+
+////
+enum Season {
+	SPRING, SUMMER, AUTUMN, WINTER
+}
+
+/// Relations
+
+
+///1
+
+relationship OneToOne {
+    Country{region} to Region {country(regionId)}
+}
+
+//2
+
+relationship OneToOne {
+    Country{city} to City {country(cityId)}
+}
+
+//3
+
+relationship OneToOne {
+    Location{duration} to Duration{location(durationId)}
+}
+
+//4
+
+relationship OneToOne {
+    Location{country} to Country{location(countryId)}
+}
+
+//5
+
+relationship OneToOne {
+    Location{photo} to Photo{location(photoId)}
+}
+
+//6
+
+
+relationship OneToMany {
+    TravelRoute{location(travelRouteId)} to Location{travelRoute}
+}
+
+//7
+
+relationship OneToOne {
+    TravelRoute{duration} to Duration{travelRoute(durationId)}
+}
+
+//8
+
+relationship OneToOne {
+    TravelRoute{category} to Category{travelRoute(categoryId)}
+}
+
+//9
+
+relationship OneToMany {
+    TravelRoute{photo(travelRouteId)} to Photo{travelRoute}
+}
+ 
+//10
+
+relationship OneToMany {
+    TravelRoute{valuation(travelRouteId)} to Valuation{travelRoute}
+}
+
+//11
+
+relationship OneToMany {
+    UserProfile{travelRoute(userProfileId)} to TravelRoute{userProfile}
+}
+
+//12
+
+relationship OneToOne {
+    UserProfile{country} to Country{userProfile(countryId)}
+}
+
+//13
+
+relationship OneToOne {
+    UserProfile{photo} to Photo{userProfile(photoId)}
+}
+
+//14
+
+relationship OneToMany {
+    UserProfile{valuation(userProfileId)} to Valuation{userProfile}
+}
+
+//15
+
+relationship OneToMany {
+    UserProfile{follower(userProfileId)} to Follower{userProfile}
+}
+
+//16
+
+relationship OneToOne {
+     Location{qr} to Qr{location(qrId)}
+} 
+
+////
+
+// Set pagination options
+
+paginate all with pagination
+
+// Use Data Transfert Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl 
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
