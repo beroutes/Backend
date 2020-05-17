@@ -116,8 +116,8 @@ public class TravelRouteService {
 		newTravelRoute1.setValueAverage(9.3);
 		newTravelRoute1.setDescriptionRouteSummary("Lorem Ipsun istin icole hasta que fisticolico de nimiluti.");
 		newTravelRoute1.setDescriptionRoute(" Elementum cubilia parturient sociis. Lorem Ipsun istin icole hasta que fisticolico de nimiluti. Bicuris di Cadi sa rese poli que kala pragmatas istem filis mu ke su aresi\\\\r\\\\nTempus pharetra suscipit vulputate mus elementum cubilia parturient sociis");
-		newTravelRoute1.setSteps(5);
-		newTravelRoute1.setSummaryMap("1:Museo al Aire Libre de Göreme.; 2:Valle de las Palomas.; 3:Castillo de Uchisar.; 4:Ortahisar.; 5:Ürgup.");
+		newTravelRoute1.setSteps(4);
+		newTravelRoute1.setSummaryMap("1:Museo al Aire Libre de Göreme.; 2:Castillo de Uchisar.; 3:Ortahisar.; 4:Ürgup.");
 		newTravelRoute1.setCreatedAt(null);
 		newTravelRoute1.setUpdatedAt(null);
 		newTravelRoute1.setQrActivation(false);

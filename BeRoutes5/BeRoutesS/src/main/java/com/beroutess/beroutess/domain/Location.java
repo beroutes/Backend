@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import javax.persistence.ManyToOne;
@@ -31,10 +32,10 @@ public class Location {
     String descriptionLocation;
 
     @Column(name = "x_coordinate")
-    Float xCoordinate;
+    Double xCoordinate;
 
     @Column(name = "y_coordinate")
-    Float yCoordinate;
+    Double yCoordinate;
 
     @Column(name = "qr_activation")
     Boolean qrActivation;
@@ -48,11 +49,11 @@ public class Location {
     @Column(name = "updated_at")
     LocalDate updatedAt;
 
-    @Column(name = "photo_location")
-    Long photoLocation;
+    //@Column(name = "photo_location")
+    //String photoLocationDescription;
 
-    @Column(name = "photo_location_id")
-    Long photoLocationId;
+    //@Column(name = "photo_location_id")
+    //Long photoLocationId;
     
 
     //o
@@ -92,11 +93,11 @@ public class Location {
 		return descriptionLocation;
 	}
 
-	public Float getxCoordinate() {
+	public Double getxCoordinate() {
 		return xCoordinate;
 	}
 
-	public Float getyCoordinate() {
+	public Double getyCoordinate() {
 		return yCoordinate;
 	}
 
@@ -115,14 +116,14 @@ public class Location {
 	public LocalDate getUpdatedAt() {
 		return updatedAt;
 	}
-
-	public Long getPhotoLocation() {
-		return photoLocation;
+/*
+	public String getPhotoLocationDescription() {
+		return photoLocationDescription;
 	}
-
-	public Long getPhotoLocationId() {
+*/
+	/*public Long getPhotoLocationId() {
 		return photoLocationId;
-	}
+	}*/
 
 	public Country getCountry() {
 		return country;
@@ -156,11 +157,11 @@ public class Location {
 		this.descriptionLocation = descriptionLocation;
 	}
 
-	public void setxCoordinate(Float xCoordinate) {
+	public void setxCoordinate(Double xCoordinate) {
 		this.xCoordinate = xCoordinate;
 	}
 
-	public void setyCoordinate(Float yCoordinate) {
+	public void setyCoordinate(Double yCoordinate) {
 		this.yCoordinate = yCoordinate;
 	}
 
@@ -179,15 +180,16 @@ public class Location {
 	public void setUpdatedAt(LocalDate updatedAt) {
 		this.updatedAt = updatedAt;
 	}
-
-	public void setPhotoLocation(Long photoLocation) {
-		this.photoLocation = photoLocation;
+/*
+	public void setPhotoLocationDescription(String photoLocationDescription) {
+		this.photoLocationDescription = photoLocationDescription;
 	}
-
+*/
+/*
 	public void setPhotoLocationId(Long photoLocationId) {
 		this.photoLocationId = photoLocationId;
 	}
-
+*/
 	public void setCountry(Country country) {
 		this.country = country;
 	}

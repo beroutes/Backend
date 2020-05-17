@@ -50,7 +50,7 @@ public class TravelRouteController {
 	}
 	
 	@PutMapping(path = "/travelRoute/{id}")
-	TravelRoute editTravelRoute (@PathVariable Long id, @RequestBody TravelRoute travelRoute) {
+	TravelRoute editTravelRoute(@RequestBody TravelRoute travelRoute,@PathVariable Long id) {
 		travelRouteService.editTravelRoute(id, travelRoute);
 		return travelRoute;
 	}
