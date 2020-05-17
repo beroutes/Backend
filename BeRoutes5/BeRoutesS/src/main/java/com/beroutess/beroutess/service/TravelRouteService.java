@@ -18,12 +18,10 @@ public class TravelRouteService {
 	TravelRouteRepository travelRouteRepository;
 	//Inicializamos con un constructor
 	public TravelRouteService(TravelRouteRepository travelRouteRepository) {
-		
-		
+	
 	
 		this.travelRouteRepository = travelRouteRepository;
 
-	
 	}
 	
 	///Los métodos
@@ -45,6 +43,7 @@ public class TravelRouteService {
 		travelRouteRepository.delete(travelRouteRepository.getOne(id));
 		return travelRouteRepository.count();
 	}
+	
 	public TravelRoute editTravelRoute(Long id, TravelRoute travelRoute) {
 		TravelRoute travelRouteSaved = travelRouteRepository.getOne(id);
 		travelRouteSaved.setTitleRoute(travelRoute.getTitleRoute());

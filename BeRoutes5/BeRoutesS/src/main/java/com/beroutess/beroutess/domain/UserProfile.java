@@ -56,10 +56,10 @@ public class UserProfile {
     LocalDate updatedAt;
 
     @Column(name = "follower")
-    Long follower;
+    Integer follower;
 
     @Column(name = "followed")
-    Long followed;
+    Integer followed;
     
     //o
     @OneToOne(mappedBy = "userProfile")
@@ -90,6 +90,7 @@ public class UserProfile {
     @OneToMany(mappedBy = "userProfile")
     @JsonManagedReference
     List<Favorite>favorites;
+    
 
 	public Long getId() {
 		return id;
@@ -135,11 +136,11 @@ public class UserProfile {
 		return updatedAt;
 	}
 
-	public Long getFollower() {
+	public Integer getFollower() {
 		return follower;
 	}
 
-	public Long getFollowed() {
+	public Integer getFollowed() {
 		return followed;
 	}
 
@@ -211,11 +212,11 @@ public class UserProfile {
 		this.updatedAt = updatedAt;
 	}
 
-	public void setFollower(Long follower) {
+	public void setFollower(Integer follower) {
 		this.follower = follower;
 	}
 
-	public void setFollowed(Long followed) {
+	public void setFollowed(Integer followed) {
 		this.followed = followed;
 	}
 
