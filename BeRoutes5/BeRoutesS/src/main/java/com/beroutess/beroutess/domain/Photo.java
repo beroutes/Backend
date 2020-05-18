@@ -38,6 +38,9 @@ public class Photo {
 
     @Column(name = "photo_location")
     Boolean photoLocation;
+    
+    @Column(name = "photo_profile")
+    Boolean photoProfile;
 
     @Column(name = "url_photo")
     String urlPhoto;
@@ -90,6 +93,14 @@ public class Photo {
 
 	public Boolean getPhotoLocation() {
 		return photoLocation;
+	}
+
+	public Boolean getPhotoProfile() {
+		return photoProfile;
+	}
+
+	public void setPhotoProfile(Boolean photoProfile) {
+		this.photoProfile = photoProfile;
 	}
 
 	public String getUrlPhoto() {
