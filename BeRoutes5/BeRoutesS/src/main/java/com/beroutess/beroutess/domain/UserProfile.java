@@ -60,7 +60,7 @@ public class UserProfile {
 
     @Column(name = "followed")
     Integer followed;
-    
+    /*
     //o
     @OneToOne(mappedBy = "userProfile")
     @JsonManagedReference
@@ -90,7 +90,7 @@ public class UserProfile {
     @OneToMany(mappedBy = "userProfile")
     @JsonManagedReference
     List<Favorite>favorites;
-    
+    */
 
 	public Long getId() {
 		return id;
@@ -143,7 +143,7 @@ public class UserProfile {
 	public Integer getFollowed() {
 		return followed;
 	}
-
+/*
 	public Country getCountry() {
 		return country;
 	}
@@ -167,7 +167,7 @@ public class UserProfile {
 	public List<Favorite> getFavorites() {
 		return favorites;
 	}
-
+*/
 	public void setId(Long id) {
 		this.id = id;
 	}
@@ -219,7 +219,7 @@ public class UserProfile {
 	public void setFollowed(Integer followed) {
 		this.followed = followed;
 	}
-
+/*
 	public void setCountry(Country country) {
 		this.country = country;
 	}
@@ -243,7 +243,8 @@ public class UserProfile {
 	public void setFavorites(List<Favorite> favorites) {
 		this.favorites = favorites;
 	}
-    
+    */
+	
   //No tengo clara esta relación.//o
     //@ManyToOne    
     //Following following;

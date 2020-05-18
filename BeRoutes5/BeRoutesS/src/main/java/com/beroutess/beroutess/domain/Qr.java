@@ -31,7 +31,7 @@ public class Qr {
 
     @Column(name = "data_3")
     Double data3;
-    
+    /*
     //o
     @OneToOne
     @JsonManagedReference
@@ -41,7 +41,7 @@ public class Qr {
     @ManyToOne
     @JsonManagedReference
     TravelRoute travelRoute;
-
+*/
 	public Long getId() {
 		return id;
 	}
@@ -61,7 +61,7 @@ public class Qr {
 	public Double getData3() {
 		return data3;
 	}
-
+/*
 	public Location getLocation() {
 		return location;
 	}
@@ -69,7 +69,7 @@ public class Qr {
 	public TravelRoute getTravelRoute() {
 		return travelRoute;
 	}
-
+*/
 	public void setId(Long id) {
 		this.id = id;
 	}
@@ -89,7 +89,7 @@ public class Qr {
 	public void setData3(Double data3) {
 		this.data3 = data3;
 	}
-
+/*
 	public void setLocation(Location location) {
 		this.location = location;
 	}
@@ -97,7 +97,7 @@ public class Qr {
 	public void setTravelRoute(TravelRoute travelRoute) {
 		this.travelRoute = travelRoute;
 	}
-
+*/
     
 
 }

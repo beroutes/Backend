@@ -52,6 +52,7 @@ public class Photo {
     @Column(name = "image_route_content_type")
     String imageRouteContentType;
     
+    /*
     //o
     @OneToOne
     @JsonIgnore
@@ -66,7 +67,7 @@ public class Photo {
     @ManyToOne
     @JsonManagedReference
     TravelRoute travelRoute;
-
+*/
 	public Long getId() {
 		return id;
 	}
@@ -106,7 +107,7 @@ public class Photo {
 	public String getImageRouteContentType() {
 		return imageRouteContentType;
 	}
-
+/*
 	public Location getLocation() {
 		return location;
 	}
@@ -118,7 +119,7 @@ public class Photo {
 	public TravelRoute getTravelRoute() {
 		return travelRoute;
 	}
-
+*/
 	public void setId(Long id) {
 		this.id = id;
 	}
@@ -158,7 +159,7 @@ public class Photo {
 	public void setImageRouteContentType(String imageRouteContentType) {
 		this.imageRouteContentType = imageRouteContentType;
 	}
-
+/*
 	public void setLocation(Location location) {
 		this.location = location;
 	}
@@ -170,7 +171,7 @@ public class Photo {
 	public void setTravelRoute(TravelRoute travelRoute) {
 		this.travelRoute = travelRoute;
 	}
-	
+*/	
 
     
 }

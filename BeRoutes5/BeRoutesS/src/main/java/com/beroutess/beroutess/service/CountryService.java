@@ -49,9 +49,9 @@ public class CountryService {
 		countrySaved.setCountryName(country.getCountryName());			
 		countrySaved.setRegion(country.getRegion());
 		countrySaved.setCity(country.getCity());
-		countrySaved.setLocation(country.getLocation());
-	    countrySaved.setTravelRoute(country.getTravelRoute());
-	    countrySaved.setUserProfile(country.getUserProfile());
+		//countrySaved.setLocation(country.getLocation());
+	    //countrySaved.setTravelRoute(country.getTravelRoute());
+	    //countrySaved.setUserProfile(country.getUserProfile());
 		
 		countryRepository.save(countrySaved);
 		return countrySaved;

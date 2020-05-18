@@ -21,7 +21,7 @@ public class Valuation {
 
     @Column(name = "comment")
     String comment;
-
+/*
     //o
     @ManyToOne
     @JsonManagedReference
@@ -31,7 +31,7 @@ public class Valuation {
     @ManyToOne
     @JsonManagedReference
     UserProfile userProfile;
-
+*/
 	public Long getId() {
 		return id;
 	}
@@ -43,7 +43,7 @@ public class Valuation {
 	public String getComment() {
 		return comment;
 	}
-
+/*
 	public TravelRoute getTravelRoute() {
 		return travelRoute;
 	}
@@ -51,7 +51,7 @@ public class Valuation {
 	public UserProfile getUserProfile() {
 		return userProfile;
 	}
-
+*/
 	public void setId(Long id) {
 		this.id = id;
 	}
@@ -63,7 +63,7 @@ public class Valuation {
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
-
+/*
 	public void setTravelRoute(TravelRoute travelRoute) {
 		this.travelRoute = travelRoute;
 	}
@@ -71,7 +71,7 @@ public class Valuation {
 	public void setUserProfile(UserProfile userProfile) {
 		this.userProfile = userProfile;
 	}
-    
+ */   
     
 
 }

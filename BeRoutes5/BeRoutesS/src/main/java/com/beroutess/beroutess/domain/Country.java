@@ -13,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
 @Entity
-@Table(name = "country")
+//@Table(name = "country")
 public class Country {
 	
 	@Id
@@ -30,7 +30,7 @@ public class Country {
 	 String city;
 	 
 	 
-	 
+	 /*
      //o //probaré a no mostrar tampoco el loaction en el country con JsonIgnoreProperties pero se ve aunque vacio creo
 	 @OneToOne
 	 @JsonIgnoreProperties
@@ -46,7 +46,7 @@ public class Country {
 	 @JsonBackReference
 	 UserProfile userProfile;
 	 
-	
+	*/
 
 	public Long getId() {
 		return id;
@@ -64,7 +64,7 @@ public class Country {
 		return city;
 	}
 
-	
+	/*
 	public Location getLocation() {
 		return location;
 	}
@@ -76,7 +76,7 @@ public class Country {
 	public UserProfile getUserProfile() {
 		return userProfile;
 	}
-	
+	*/
 	
 
 	public void setId(Long id) {
@@ -95,7 +95,7 @@ public class Country {
 		this.city = city;
 	}
 
-	
+	/*
 	public void setLocation(Location location) {
 		this.location = location;
 	}
@@ -108,7 +108,7 @@ public class Country {
 		this.userProfile = userProfile;
 	}
 	
-	
+	*/
 
 
 }

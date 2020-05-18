@@ -49,13 +49,9 @@ public class Location {
     @Column(name = "updated_at")
     LocalDate updatedAt;
 
-    //@Column(name = "photo_location")
-    //String photoLocationDescription;
-
-    //@Column(name = "photo_location_id")
-    //Long photoLocationId;
     
 
+    /*
     //o
     @OneToOne(mappedBy = "location")
     @JsonBackReference
@@ -76,6 +72,8 @@ public class Location {
     @ManyToOne
     @JsonBackReference   
     TravelRoute travelRoute;
+    
+    */
 
 	public Long getId() {
 		return id;
@@ -116,15 +114,8 @@ public class Location {
 	public LocalDate getUpdatedAt() {
 		return updatedAt;
 	}
-/*
-	public String getPhotoLocationDescription() {
-		return photoLocationDescription;
-	}
-*/
-	/*public Long getPhotoLocationId() {
-		return photoLocationId;
-	}*/
 
+/*
 	public Country getCountry() {
 		return country;
 	}
@@ -140,7 +131,7 @@ public class Location {
 	public TravelRoute getTravelRoute() {
 		return travelRoute;
 	}
-
+*/
 	public void setId(Long id) {
 		this.id = id;
 	}
@@ -181,15 +172,6 @@ public class Location {
 		this.updatedAt = updatedAt;
 	}
 /*
-	public void setPhotoLocationDescription(String photoLocationDescription) {
-		this.photoLocationDescription = photoLocationDescription;
-	}
-*/
-/*
-	public void setPhotoLocationId(Long photoLocationId) {
-		this.photoLocationId = photoLocationId;
-	}
-*/
 	public void setCountry(Country country) {
 		this.country = country;
 	}
@@ -206,6 +188,6 @@ public class Location {
 		this.travelRoute = travelRoute;
 	}
 
-    
+  */  
     
 }

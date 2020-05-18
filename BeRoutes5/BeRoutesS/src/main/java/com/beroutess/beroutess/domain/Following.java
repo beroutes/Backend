@@ -42,13 +42,13 @@ public class Following {
     // @OneToMany(mappedBy = "following")
     // List<UserProfile> userProfiles;
 
-    
+    /*
     
     //o
     @ManyToOne
     @JsonManagedReference
     UserProfile userProfile;
-    
+    */
     
 
 	public Long getId() {
@@ -72,12 +72,12 @@ public class Following {
 	}
 
 	
-	
+	/*
 	public UserProfile getUserProfile() {
 		return userProfile;
 	}
 	
-
+*/
 	public void setId(Long id) {
 		this.id = id;
 	}
@@ -98,12 +98,12 @@ public class Following {
 		this.userFollowed = userFollowed;
 	}
 
-	
+	/*
 	public void setUserProfile(UserProfile userProfile) {
 		this.userProfile = userProfile;
 	}
 	
-    
+    */
     
 
 }

@@ -27,7 +27,7 @@ public class Favorite {
 
     
     
-     
+     /*
     //o //
     @ManyToOne
     @JsonManagedReference
@@ -37,7 +37,7 @@ public class Favorite {
     @ManyToOne
     @JsonBackReference
     UserProfile userProfile;
-    
+    */
     
 
 	public Long getId() {
@@ -52,7 +52,7 @@ public class Favorite {
 		return notLike;
 	}
 
-	
+	/*
 	public TravelRoute getTravelRoute() {
 		return travelRoute;
 	}
@@ -60,7 +60,7 @@ public class Favorite {
 	public UserProfile getUserProfile() {
 		return userProfile;
 	}
-	
+	*/
 	
 
 	public void setId(Long id) {
@@ -75,7 +75,7 @@ public class Favorite {
 		this.notLike = notLike;
 	}
 
-	
+	/*
 	public void setTravelRoute(TravelRoute travelRoute) {
 		this.travelRoute = travelRoute;
 	}
@@ -83,7 +83,7 @@ public class Favorite {
 	public void setUserProfile(UserProfile userProfile) {
 		this.userProfile = userProfile;
 	}
-    
+    */
     
     
 }

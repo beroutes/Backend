@@ -64,13 +64,14 @@ public class TravelRouteService {
 		travelRouteSaved.setUpdatedAt(travelRoute.getUpdatedAt());
 		travelRouteSaved.setQrActivation(travelRoute.getQrActivation());
 		
+		/*
 		travelRouteSaved.setCountry(travelRoute.getCountry());
 		travelRouteSaved.setLocations(travelRoute.getLocations());
 		travelRouteSaved.setFavorites(travelRoute.getFavorites());
 		travelRouteSaved.setPhotos(travelRoute.getPhotos());
 		travelRouteSaved.setValuations(travelRoute.getValuations());
 		travelRouteSaved.setQrs(travelRoute.getQrs());
-		
+		*/
 	
 		
 		travelRouteRepository.save(travelRouteSaved);
@@ -146,7 +147,7 @@ public class TravelRouteService {
 		travelRouteRepository.save(newTravelRoute2);
 		
 		TravelRoute newTravelRoute3 = new TravelRoute();
-		newTravelRoute3.setTitleRoute("Cappadocia bella");
+		newTravelRoute3.setTitleRoute("Bike trip in morocco");
 		newTravelRoute3.setDestination("Morocco");
 		newTravelRoute3.setContinent(Continent.EUROPE);
 		newTravelRoute3.setDays(7);

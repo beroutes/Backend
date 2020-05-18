@@ -83,7 +83,7 @@ public class TravelRoute {
 	    @Column(name = "qr_activation")
 	    Boolean qrActivation;
 	    
-	    
+	    /*
         //o
 	    @OneToOne(mappedBy = "travelRoute")
 	    @JsonManagedReference
@@ -118,7 +118,7 @@ public class TravelRoute {
 	    @ManyToOne
 	    @JsonBackReference
 	    UserProfile userProfile;
-
+*/
 		public Long getId() {
 			return id;
 		}
@@ -190,7 +190,7 @@ public class TravelRoute {
 		public Boolean getQrActivation() {
 			return qrActivation;
 		}
-
+/*
 		public Country getCountry() {
 			return country;
 		}
@@ -218,7 +218,7 @@ public class TravelRoute {
 		public UserProfile getUserProfile() {
 			return userProfile;
 		}
-
+*/
 		public void setId(Long id) {
 			this.id = id;
 		}
@@ -290,7 +290,7 @@ public class TravelRoute {
 		public void setQrActivation(Boolean qrActivation) {
 			this.qrActivation = qrActivation;
 		}
-
+/*
 		public void setCountry(Country country) {
 			this.country = country;
 		}
@@ -319,6 +319,6 @@ public class TravelRoute {
 			this.userProfile = userProfile;
 		}
 	    
-	    
+	*/    
 
 }

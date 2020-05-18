@@ -52,12 +52,12 @@ public class UserProfileService {
 		userProfileSaved.setFollower(userProfile.getFollower());
 		userProfileSaved.setFollowed(userProfile.getFollowed());
 		
-		userProfileSaved.setCountry(userProfile.getCountry());
-		userProfileSaved.setPhoto(userProfile.getPhoto());
-		userProfileSaved.setTravelRoutes(userProfile.getTravelRoutes());
-		userProfileSaved.setValuations(userProfile.getValuations());
-	    userProfileSaved.setFollowings(userProfile.getFollowings());
-		userProfileSaved.setFavorites(userProfile.getFavorites());
+		//userProfileSaved.setCountry(userProfile.getCountry());
+		//userProfileSaved.setPhoto(userProfile.getPhoto());
+		//userProfileSaved.setTravelRoutes(userProfile.getTravelRoutes());
+		//userProfileSaved.setValuations(userProfile.getValuations());
+	    //userProfileSaved.setFollowings(userProfile.getFollowings());
+		//userProfileSaved.setFavorites(userProfile.getFavorites());
 		
 		
 		

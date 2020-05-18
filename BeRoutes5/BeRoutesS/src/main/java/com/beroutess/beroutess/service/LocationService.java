@@ -49,12 +49,12 @@ public class LocationService {
 		locationSaved.setUpdatedAt(location.getUpdatedAt());
 		//locationSaved.setPhotoLocationDescription(location.getPhotoLocationDescription());
 	    //locationSaved.setPhotoLocationId(location.getPhotoLocationId());
-	    
+	    /*
 		locationSaved.setCountry(location.getCountry());
 		locationSaved.setPhoto(location.getPhoto());
 		locationSaved.setQr(location.getQr());
 	    locationSaved.setTravelRoute(location.getTravelRoute());
-		
+		*/
 		
 		locationRepository.save(locationSaved);
 		return locationSaved;
