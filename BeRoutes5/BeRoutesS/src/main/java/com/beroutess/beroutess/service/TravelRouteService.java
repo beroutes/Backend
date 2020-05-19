@@ -1,6 +1,7 @@
 package com.beroutess.beroutess.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -10,6 +11,7 @@ import com.beroutes.beroutes.domain.enumeration.Continent;
 import com.beroutes.beroutes.domain.enumeration.Season;
 import com.beroutess.beroutess.domain.TravelRoute;
 import com.beroutess.beroutess.repository.TravelRouteRepository;
+
 
 @Service
 public class TravelRouteService {
@@ -30,8 +32,13 @@ public class TravelRouteService {
 		return travelRouteRepository.findAll();
 	}
 	
+	/*
 	public TravelRoute getTravelRoute(Long id) {
 		return travelRouteRepository.getOne(id);
+	}
+	*/
+	public Optional<TravelRoute> findById(Long id) {
+		return travelRouteRepository.findById(id);
 	}
 
 	public Long addTravelRoute(TravelRoute travelRoute) {

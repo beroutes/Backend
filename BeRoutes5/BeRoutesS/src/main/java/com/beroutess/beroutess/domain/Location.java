@@ -66,14 +66,15 @@ public class Location {
     @OneToOne(mappedBy = "location")
     @JsonBackReference
     Qr qr;
-
-    //o
-    //Funciona esta notación para no mostrar travelRoute  @JsonIgnoreProperties("locations")
+*/
+    /*
+    //ooo
+    //Funciona tambien esta notación para no mostrar travelRoute  @JsonIgnoreProperties("locations")
     @ManyToOne
     @JsonBackReference   
     TravelRoute travelRoute;
-    
     */
+    //*/
 
 	public Long getId() {
 		return id;

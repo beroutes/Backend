@@ -1,10 +1,12 @@
 package com.beroutess.beroutess.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
 import com.beroutess.beroutess.domain.Country;
+
 import com.beroutess.beroutess.repository.CountryRepository;
 
 @Service
@@ -28,9 +30,13 @@ public class CountryService {
 	public List<Country>getCountries(){
 		return countryRepository.findAll();
 	}
-	
+	/*
 	public Country getCountry(Long id) {
 		return countryRepository.getOne(id);
+	}
+	*/
+	public Optional<Country> findById(Long id) {
+		return countryRepository.findById(id);
 	}
 
 	public Long addCountry (Country country) {

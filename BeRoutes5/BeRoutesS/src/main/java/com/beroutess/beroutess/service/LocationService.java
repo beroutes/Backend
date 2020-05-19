@@ -1,10 +1,12 @@
 package com.beroutess.beroutess.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
 import com.beroutess.beroutess.domain.Location;
+
 import com.beroutess.beroutess.repository.LocationRepository;
 
 @Service
@@ -21,8 +23,8 @@ public class LocationService {
 		return locationRepository.findAll();
 	}
 	
-	public Location getLocation(Long id) {
-		return locationRepository.getOne(id);
+	public Optional<Location> findById(Long id) {
+		return locationRepository.findById(id);
 	}
 
 	public Long addLocation(Location location) {

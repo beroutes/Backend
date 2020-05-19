@@ -1,8 +1,10 @@
 package com.beroutess.beroutess.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
+
 
 import com.beroutess.beroutess.domain.UserProfile;
 import com.beroutess.beroutess.repository.UserProfileRepository;
@@ -23,8 +25,8 @@ public class UserProfileService {
 		return userProfileRepository.findAll();
 	}
 	
-	public UserProfile getUserProfile(Long id) {
-		return userProfileRepository.getOne(id);
+	public Optional<UserProfile> findById(Long id) {
+		return userProfileRepository.findById(id);
 	}
 
 	public Long addUserProfile(UserProfile userProfile) {

@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import com.beroutess.beroutess.domain.Photo;
+
 import com.beroutess.beroutess.service.PhotoService;
+import com.beroutess.beroutess.web.error.CustomBeRoutesError;
 
 @RestController
 public class PhotoController {
@@ -30,8 +32,13 @@ public class PhotoController {
 	}
 	
 	@GetMapping(path = "/photo/{id}")
-	Photo getPhoto(@PathVariable Long id) {
-		return photoService.getPhoto(id);
+	Photo findById(@PathVariable Long id){
+		if (photoService.findById(id).isPresent()) {
+			return photoService.findById(id).get();
+		}else {
+			throw new CustomBeRoutesError("We can't find the photo.");
+		}
+						
 	}
 	
 	@PostMapping(path = "/photo")

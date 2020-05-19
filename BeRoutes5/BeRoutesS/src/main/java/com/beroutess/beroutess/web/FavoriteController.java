@@ -12,8 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import com.beroutess.beroutess.domain.Favorite;
-import com.beroutess.beroutess.domain.Photo;
+
 import com.beroutess.beroutess.service.FavoriteService;
+import com.beroutess.beroutess.web.error.CustomBeRoutesError;
 
 @RestController
 public class FavoriteController {
@@ -29,9 +30,15 @@ public class FavoriteController {
 	List<Favorite> getFavorites(){
 		return favoriteService.getFavorites();
 	}
+	
 	@GetMapping(path = "/favorite/{id}")
-	Favorite getFavorite(@PathVariable Long id) {
-		return favoriteService.getFavorite(id);
+	Favorite findById(@PathVariable Long id){
+		if (favoriteService.findById(id).isPresent()) {
+			return favoriteService.findById(id).get();
+		}else {
+			throw new CustomBeRoutesError("We can't find the favorite.");
+		}
+						
 	}
 	
 	@PostMapping(path = "/favorite")

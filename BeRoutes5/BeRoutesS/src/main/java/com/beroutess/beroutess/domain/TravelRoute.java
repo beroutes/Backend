@@ -88,12 +88,14 @@ public class TravelRoute {
 	    @OneToOne(mappedBy = "travelRoute")
 	    @JsonManagedReference
 	    Country country;
-	    
-	    //o
+	    */
+	    /*
+	    //ooo//Muestra el array de locations
 	    @OneToMany(mappedBy = "travelRoute")
 	    @JsonManagedReference
 	    List<Location>locations;
-	    
+	    */
+	     /*
 	    //o
 	    @OneToMany(mappedBy = "travelRoute")
 	    @JsonBackReference

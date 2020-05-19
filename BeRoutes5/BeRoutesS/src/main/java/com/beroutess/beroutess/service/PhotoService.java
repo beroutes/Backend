@@ -1,12 +1,14 @@
 package com.beroutess.beroutess.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.beroutess.beroutess.domain.Country;
-import com.beroutess.beroutess.domain.Favorite;
+
+
 import com.beroutess.beroutess.domain.Photo;
+
 import com.beroutess.beroutess.repository.PhotoRepository;
 
 @Service
@@ -25,10 +27,9 @@ public class PhotoService {
 				return photoRepository.findAll();
 			}
 			
-			public Photo getPhoto(Long id) {
-				return photoRepository.getOne(id);
+			public Optional<Photo> findById(Long id) {
+				return photoRepository.findById(id);
 			}
-
 			public Long addPhoto (Photo photo) {
 				Photo photoSaved = photoRepository.save(photo);
 				return photoSaved.getId();		

@@ -1,6 +1,7 @@
 package com.beroutess.beroutess.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -28,8 +29,8 @@ public class FavoriteService {
 			return favoriteRepository.findAll();
 		}
 		
-		public Favorite getFavorite(Long id) {
-			return favoriteRepository.getOne(id);
+		public Optional<Favorite> findById(Long id) {
+			return favoriteRepository.findById(id);
 		}
 
 		public Long addFavorite (Favorite favorite) {

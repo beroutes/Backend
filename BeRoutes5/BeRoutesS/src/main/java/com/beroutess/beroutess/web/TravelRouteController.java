@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.beroutess.beroutess.domain.TravelRoute;
 import com.beroutess.beroutess.service.TravelRouteService;
+import com.beroutess.beroutess.web.error.CustomBeRoutesError;
+
+
 
 
 @RestController
@@ -32,10 +35,20 @@ public class TravelRouteController {
 		return travelRouteService.getTravelRoutes();
 	}
 
-	
+	/*
 	@GetMapping(path = "/travelRoute/{id}")
 	TravelRoute getTravelRoute (@PathVariable Long id) {
 		return travelRouteService.getTravelRoute(id);
+	}
+	*/
+	@GetMapping(path = "/travelRoute/{id}")
+	TravelRoute findById(@PathVariable Long id){
+		if (travelRouteService.findById(id).isPresent()) {
+			return travelRouteService.findById(id).get();
+		}else {
+			throw new CustomBeRoutesError("We can't find the route.");
+		}
+						
 	}
 	
 	@PostMapping(path = "/travelRoute")

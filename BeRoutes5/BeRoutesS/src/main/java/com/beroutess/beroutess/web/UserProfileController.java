@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-
 import com.beroutess.beroutess.domain.UserProfile;
 import com.beroutess.beroutess.service.UserProfileService;
+import com.beroutess.beroutess.web.error.CustomBeRoutesError;
 
 @RestController
 public class UserProfileController {
@@ -33,8 +33,13 @@ public class UserProfileController {
 
 	
 	@GetMapping(path = "/userProfile/{id}")
-	UserProfile getUserProfile (@PathVariable Long id) {
-		return userProfileService.getUserProfile(id);
+	UserProfile findById(@PathVariable Long id){
+		if (userProfileService.findById(id).isPresent()) {
+			return userProfileService.findById(id).get();
+		}else {
+			throw new CustomBeRoutesError("We can't find the userProfile.");
+		}
+						
 	}
 	
 	@PostMapping(path = "/userProfile")

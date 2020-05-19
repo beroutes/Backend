@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.beroutess.beroutess.domain.Country;
+
 import com.beroutess.beroutess.repository.CountryRepository;
 import com.beroutess.beroutess.service.CountryService;
+import com.beroutess.beroutess.web.error.CustomBeRoutesError;
 
 @RestController
 public class CountryController
@@ -40,17 +42,29 @@ public class CountryController
 	}
 //*/
 	/*//Otro modo de hacer el get mediante el repository directamente
+	 * 
 	@GetMapping(path = "/countries")
 	List<Country> getCountries(){
 		return countryRepository.findAll();
 		}
 	*/	
-		
+	
+	/*
 	@GetMapping(path = "/country/{id}")
 	Country getCountry (@PathVariable Long id) {
 		return countryService.getCountry(id);
 	}
+	*/
 	
+	@GetMapping(path = "country/{id}")
+	Country findById(@PathVariable Long id){
+		if (countryService.findById(id).isPresent()) {
+			return countryService.findById(id).get();
+		}else {
+			throw new CustomBeRoutesError("We can't find the country.");
+		}
+						
+	}
 	///*
 	@PostMapping(path = "/country")
 	Long addCountry (@RequestBody Country country) {

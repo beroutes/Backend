@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import com.beroutess.beroutess.domain.Location;
+
 import com.beroutess.beroutess.service.LocationService;
+import com.beroutess.beroutess.web.error.CustomBeRoutesError;
 
 @RestController
 public class LocationController {
@@ -30,8 +32,13 @@ public class LocationController {
 	}
 	
 	@GetMapping(path = "/location/{id}")
-	Location getLocation (@PathVariable Long id) {
-		return locationService.getLocation(id);
+	Location findById(@PathVariable Long id){
+		if (locationService.findById(id).isPresent()) {
+			return locationService.findById(id).get();
+		}else {
+			throw new CustomBeRoutesError("We can't find the location.");
+		}
+						
 	}
 	
 	@PostMapping(path = "/location")
