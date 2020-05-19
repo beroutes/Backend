@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import com.beroutess.beroutess.domain.Country;
 import com.beroutess.beroutess.domain.Favorite;
 
 import com.beroutess.beroutess.service.FavoriteService;
@@ -56,6 +56,14 @@ public class FavoriteController {
 	Favorite editFavorite(@PathVariable Long id, @RequestBody Favorite favorite) {
 		favoriteService.editFavorite(id, favorite);
 		return favorite;
+	}
+	
+	@GetMapping(path = "/favorites/init")	
+	List<Favorite> initFavorites(){
+		if (favoriteService.getFavorites().size()==0) {
+			return favoriteService.initFavorites();
+		}else
+			return favoriteService.getFavorites();
 	}
 
 }

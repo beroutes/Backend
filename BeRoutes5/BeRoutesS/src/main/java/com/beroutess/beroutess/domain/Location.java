@@ -13,6 +13,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "location")
@@ -67,13 +69,15 @@ public class Location {
     @JsonBackReference
     Qr qr;
 */
-    /*
+    ///*
     //ooo
     //Funciona tambien esta notación para no mostrar travelRoute  @JsonIgnoreProperties("locations")
     @ManyToOne
-    @JsonBackReference   
+    //@JsonIgnoreProperties//("locations")
+    @JsonBackReference 
+    //@JsonIgnore
     TravelRoute travelRoute;
-    */
+    //*/
     //*/
 
 	public Long getId() {

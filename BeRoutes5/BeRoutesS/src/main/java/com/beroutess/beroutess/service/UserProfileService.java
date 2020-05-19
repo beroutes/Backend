@@ -90,6 +90,24 @@ public class UserProfileService {
 					
 			userProfileRepository.save(newUserProfile0);
 			
+			UserProfile newUserProfile1 = new UserProfile();
+			
+			newUserProfile1.setFirstName("Erik");
+			newUserProfile1.setLastName("Olson");
+			newUserProfile1.setEmail("erikolson@gmail.com");
+			newUserProfile1.setTelephone(555555555);
+			newUserProfile1.setUserName("worldtraveller");
+			newUserProfile1.setPassword("12345");
+			newUserProfile1.setAge(38);
+			newUserProfile1.setBiography("VOlando voy volando vengo por el camino yo me entretengo");
+			newUserProfile1.setCreatedAt(null);
+			newUserProfile1.setUpdatedAt(null);
+			newUserProfile1.setFollower(0);
+			newUserProfile1.setFollowed(0);
+			
+					
+			userProfileRepository.save(newUserProfile1);
+			
 			return userProfileRepository.findAll();
 		}
 

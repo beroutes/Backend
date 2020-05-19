@@ -85,12 +85,13 @@ public class UserProfile {
     @OneToMany(mappedBy = "userProfile")
     @JsonBackReference
     List<Following>followings;
+    */
     
     //o
-    @OneToMany(mappedBy = "userProfile")
+    @OneToMany(mappedBy ="userProfile")
     @JsonManagedReference
     List<Favorite>favorites;
-    */
+    //*/
 
 	public Long getId() {
 		return id;

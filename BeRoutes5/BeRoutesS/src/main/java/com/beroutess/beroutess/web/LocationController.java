@@ -9,11 +9,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
 import com.beroutess.beroutess.domain.Location;
-
+import com.beroutess.beroutess.repository.LocationRepository;
 import com.beroutess.beroutess.service.LocationService;
 import com.beroutess.beroutess.web.error.CustomBeRoutesError;
 
@@ -23,11 +24,16 @@ public class LocationController {
 
 	@Autowired
 	LocationService locationService;
+	@Autowired
+	LocationRepository locationRepository;
 	
 	
 	
 	@GetMapping(path = "/locations")	
-	List<Location> getLocations(){
+	List<Location> getLocations(@RequestParam(required=false,name="name")String name){
+		if(name != null){
+			return locationRepository.findByTravelRoute_destination(name);
+		}else
 		return locationService.getLocations();
 	}
 	

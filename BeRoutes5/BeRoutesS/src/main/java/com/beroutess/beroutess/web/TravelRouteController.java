@@ -9,10 +9,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
 import com.beroutess.beroutess.domain.TravelRoute;
+import com.beroutess.beroutess.repository.TravelRouteRepository;
 import com.beroutess.beroutess.service.TravelRouteService;
 import com.beroutess.beroutess.web.error.CustomBeRoutesError;
 
@@ -24,17 +26,30 @@ import com.beroutess.beroutess.web.error.CustomBeRoutesError;
 public class TravelRouteController {
 	
 	TravelRouteService travelRouteService;
+	TravelRouteRepository travelRouteRepository;
 
-	public TravelRouteController(TravelRouteService travelRouteService) {
+
+	
+	public TravelRouteController(TravelRouteService travelRouteService, TravelRouteRepository travelRouteRepository) {
 	
 		this.travelRouteService = travelRouteService;
+		this.travelRouteRepository = travelRouteRepository;
 	}
 	
 	@GetMapping(path = "/travelRoutes")	
 	List<TravelRoute> getTravelRoutes(){
+	
 		return travelRouteService.getTravelRoutes();
 	}
-
+/*
+	@GetMapping(path = "/travelRoutes")	
+	List<TravelRoute> getTravelRoutes(@RequestParam(required=false,name="userId")Integer id){
+		if(id != null){
+			return travelRouteRepository.findByUserProfile_favorite(id);
+		}else
+		return travelRouteService.getTravelRoutes();
+	}
+*/
 	/*
 	@GetMapping(path = "/travelRoute/{id}")
 	TravelRoute getTravelRoute (@PathVariable Long id) {

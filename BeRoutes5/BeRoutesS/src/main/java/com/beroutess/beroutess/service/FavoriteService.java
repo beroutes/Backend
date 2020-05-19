@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-
+import com.beroutess.beroutess.domain.Country;
 import com.beroutess.beroutess.domain.Favorite;
 
 import com.beroutess.beroutess.repository.FavoriteRepository;
@@ -53,5 +53,23 @@ public class FavoriteService {
 			return favoriteSaved;
 		}
 		
-		
+		public List<Favorite> initFavorites() {
+			
+			Favorite newFavorite0 = new Favorite();
+			newFavorite0.setLike(true);
+			newFavorite0.setNotLike(false);
+			favoriteRepository.save(newFavorite0);
+			
+			Favorite newFavorite1 = new Favorite();
+			newFavorite1.setLike(false);
+			newFavorite1.setNotLike(false);
+			favoriteRepository.save(newFavorite1);
+			
+			Favorite newFavorite2 = new Favorite();
+			newFavorite2.setLike(false);
+			newFavorite2.setNotLike(true);
+			favoriteRepository.save(newFavorite2);
+			
+			return favoriteRepository.findAll();
+		}
 }

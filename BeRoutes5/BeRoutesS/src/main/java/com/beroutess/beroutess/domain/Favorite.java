@@ -32,12 +32,12 @@ public class Favorite {
     @ManyToOne
     @JsonManagedReference
     TravelRoute travelRoute;
-
+//*/
     //o    
     @ManyToOne
     @JsonBackReference
     UserProfile userProfile;
-    */
+    //*/
     
 
 	public Long getId() {

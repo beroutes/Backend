@@ -89,18 +89,18 @@ public class TravelRoute {
 	    @JsonManagedReference
 	    Country country;
 	    */
-	    /*
+	    ///*
 	    //ooo//Muestra el array de locations
-	    @OneToMany(mappedBy = "travelRoute")
-	    @JsonManagedReference
+	    @OneToMany(mappedBy ="travelRoute")
+	    @JsonManagedReference	  
 	    List<Location>locations;
-	    */
-	     /*
+	    //*/
+	    /*
 	    //o
 	    @OneToMany(mappedBy = "travelRoute")
 	    @JsonBackReference
 	    List<Favorite>favorites;
-	    
+	    /*
 	    //o
 	    @OneToMany(mappedBy = "travelRoute")
 	    @JsonBackReference
