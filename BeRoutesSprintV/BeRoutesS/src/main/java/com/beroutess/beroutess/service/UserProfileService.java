@@ -59,7 +59,7 @@ public class UserProfileService {
 		//userProfileSaved.setTravelRoutes(userProfile.getTravelRoutes());
 		//userProfileSaved.setValuations(userProfile.getValuations());
 	    //userProfileSaved.setFollowings(userProfile.getFollowings());
-		//userProfileSaved.setFavorites(userProfile.getFavorites());
+		userProfileSaved.setFavorites(userProfile.getFavorites());
 		
 		
 		

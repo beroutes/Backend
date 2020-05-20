@@ -48,6 +48,9 @@ public class FavoriteService {
 			
 			favoriteSaved.setLike(favorite.getLike());
 			favoriteSaved.setNotLike(favorite.getNotLike());
+			favoriteSaved.setTravelRoute(favorite.getTravelRoute());
+			favoriteSaved.setUserProfile(favorite.getUserProfile());
+			
 	
 			favoriteRepository.save(favoriteSaved);
 			return favoriteSaved;

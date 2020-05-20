@@ -15,12 +15,15 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import com.beroutes.beroutes.domain.enumeration.Category;
-import com.beroutes.beroutes.domain.enumeration.CategoryTwo;
-import com.beroutes.beroutes.domain.enumeration.Continent;
-import com.beroutes.beroutes.domain.enumeration.Season;
+import com.beroutess.beroutess.domain.enumeration.Category;
+import com.beroutess.beroutess.domain.enumeration.CategoryTwo;
+import com.beroutess.beroutess.domain.enumeration.Continent;
+import com.beroutess.beroutess.domain.enumeration.Season;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 @Entity
 @Table(name = "travel_route")
 public class TravelRoute {
@@ -95,10 +98,12 @@ public class TravelRoute {
 	    @JsonManagedReference	  
 	    List<Location>locations;
 	    //*/
-	    /*
+	    ///*
 	    //o
 	    @OneToMany(mappedBy = "travelRoute")
+	    //@JsonIgnoreProperties({"travelRoute"})
 	    @JsonBackReference
+	    //@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 	    List<Favorite>favorites;
 	    /*
 	    //o
@@ -196,15 +201,15 @@ public class TravelRoute {
 		public Country getCountry() {
 			return country;
 		}
-
+*/
 		public List<Location> getLocations() {
 			return locations;
 		}
-
+///*
 		public List<Favorite> getFavorites() {
 			return favorites;
 		}
-
+/*
 		public List<Photo> getPhotos() {
 			return photos;
 		}
@@ -296,15 +301,15 @@ public class TravelRoute {
 		public void setCountry(Country country) {
 			this.country = country;
 		}
-
+*/
 		public void setLocations(List<Location> locations) {
 			this.locations = locations;
 		}
-
+///*
 		public void setFavorites(List<Favorite> favorites) {
 			this.favorites = favorites;
 		}
-
+/*
 		public void setPhotos(List<Photo> photos) {
 			this.photos = photos;
 		}

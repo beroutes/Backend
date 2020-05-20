@@ -132,11 +132,11 @@ public class Location {
 	public Qr getQr() {
 		return qr;
 	}
-
+*/
 	public TravelRoute getTravelRoute() {
 		return travelRoute;
 	}
-*/
+//*/
 	public void setId(Long id) {
 		this.id = id;
 	}
@@ -188,11 +188,11 @@ public class Location {
 	public void setQr(Qr qr) {
 		this.qr = qr;
 	}
-
+*/
 	public void setTravelRoute(TravelRoute travelRoute) {
 		this.travelRoute = travelRoute;
 	}
 
-  */  
+  //*/  
     
 }

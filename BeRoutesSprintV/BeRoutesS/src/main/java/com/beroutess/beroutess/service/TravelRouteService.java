@@ -5,10 +5,10 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.beroutes.beroutes.domain.enumeration.Category;
-import com.beroutes.beroutes.domain.enumeration.CategoryTwo;
-import com.beroutes.beroutes.domain.enumeration.Continent;
-import com.beroutes.beroutes.domain.enumeration.Season;
+import com.beroutess.beroutess.domain.enumeration.Category;
+import com.beroutess.beroutess.domain.enumeration.CategoryTwo;
+import com.beroutess.beroutess.domain.enumeration.Continent;
+import com.beroutess.beroutess.domain.enumeration.Season;
 import com.beroutess.beroutess.domain.TravelRoute;
 import com.beroutess.beroutess.repository.TravelRouteRepository;
 
@@ -73,8 +73,12 @@ public class TravelRouteService {
 		
 		/*
 		travelRouteSaved.setCountry(travelRoute.getCountry());
+		*/
 		travelRouteSaved.setLocations(travelRoute.getLocations());
+		
 		travelRouteSaved.setFavorites(travelRoute.getFavorites());
+		
+		/*
 		travelRouteSaved.setPhotos(travelRoute.getPhotos());
 		travelRouteSaved.setValuations(travelRoute.getValuations());
 		travelRouteSaved.setQrs(travelRoute.getQrs());

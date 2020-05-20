@@ -55,8 +55,10 @@ public class LocationService {
 		locationSaved.setCountry(location.getCountry());
 		locationSaved.setPhoto(location.getPhoto());
 		locationSaved.setQr(location.getQr());
-	    locationSaved.setTravelRoute(location.getTravelRoute());
 		*/
+		
+	    locationSaved.setTravelRoute(location.getTravelRoute());
+		//*/
 		
 		locationRepository.save(locationSaved);
 		return locationSaved;

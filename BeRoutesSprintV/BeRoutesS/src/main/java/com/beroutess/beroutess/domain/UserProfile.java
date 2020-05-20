@@ -89,7 +89,7 @@ public class UserProfile {
     
     //o
     @OneToMany(mappedBy ="userProfile")
-    @JsonManagedReference
+    //@JsonManagedReference
     List<Favorite>favorites;
     //*/
 
@@ -164,11 +164,11 @@ public class UserProfile {
 	public List<Following> getFollowings() {
 		return followings;
 	}
-
+*/
 	public List<Favorite> getFavorites() {
 		return favorites;
 	}
-*/
+//*/
 	public void setId(Long id) {
 		this.id = id;
 	}
@@ -240,11 +240,11 @@ public class UserProfile {
 	public void setFollowings(List<Following> followings) {
 		this.followings = followings;
 	}
-
+*/
 	public void setFavorites(List<Favorite> favorites) {
 		this.favorites = favorites;
 	}
-    */
+  //  */
 	
   //No tengo clara esta relación.//o
     //@ManyToOne    
