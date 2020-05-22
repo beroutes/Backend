@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-05-2020 a las 03:57:35
+-- Tiempo de generación: 22-05-2020 a las 19:21:57
 -- Versión del servidor: 10.1.40-MariaDB
 -- Versión de PHP: 7.3.5
 
@@ -191,12 +191,12 @@ INSERT INTO `travel_route` (`id`, `title_route`, `destination`, `continent`, `da
 
 CREATE TABLE `user_profile` (
   `id` int(11) NOT NULL,
-  `first_name` varchar(50) NOT NULL,
-  `last_name` varchar(50) NOT NULL,
-  `email` varchar(50) NOT NULL,
+  `first_name` varchar(50) DEFAULT NULL,
+  `last_name` varchar(50) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
   `telephone` int(11) DEFAULT NULL,
-  `user_name` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL,
+  `user_name` varchar(50) DEFAULT NULL,
+  `password` varchar(50) DEFAULT NULL,
   `age` int(11) DEFAULT NULL,
   `biography` text,
   `created_at` datetime DEFAULT NULL,
