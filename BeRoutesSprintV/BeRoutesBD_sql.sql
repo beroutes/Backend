@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-05-2020 a las 19:21:57
+-- Tiempo de generación: 22-05-2020 a las 20:45:57
 -- Versión del servidor: 10.1.40-MariaDB
 -- Versión de PHP: 7.3.5
 
@@ -30,10 +30,10 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `country` (
   `id` int(11) NOT NULL,
-  `country_name` varchar(50) NOT NULL,
-  `region` varchar(100) NOT NULL,
-  `city` varchar(50) NOT NULL,
-  `travel_route_id` int(11) NOT NULL
+  `country_name` varchar(50) DEFAULT NULL,
+  `region` varchar(100) DEFAULT NULL,
+  `city` varchar(50) DEFAULT NULL,
+  `travel_route_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -67,9 +67,9 @@ INSERT INTO `favorite` (`id`, `jhi_like`, `not_like`, `travel_route_id`, `user_p
 CREATE TABLE `following` (
   `id` int(11) NOT NULL,
   `accepted` tinyint(1) DEFAULT NULL,
-  `user_follower` int(11) NOT NULL,
-  `user_followed` int(11) NOT NULL,
-  `follow` tinyint(1) NOT NULL
+  `user_follower` int(11) DEFAULT NULL,
+  `user_followed` int(11) DEFAULT NULL,
+  `follow` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -81,7 +81,7 @@ CREATE TABLE `following` (
 CREATE TABLE `location` (
   `id` int(11) NOT NULL,
   `travel_route_id` int(11) DEFAULT NULL,
-  `position` int(11) NOT NULL,
+  `position` int(11) DEFAULT NULL,
   `title_location` varchar(50) DEFAULT NULL,
   `description_location` text,
   `x_coordinate` double DEFAULT NULL,
@@ -117,17 +117,17 @@ INSERT INTO `location` (`id`, `travel_route_id`, `position`, `title_location`, `
 
 CREATE TABLE `photo` (
   `id` int(11) NOT NULL,
-  `title_photo` varchar(50) NOT NULL,
+  `title_photo` varchar(50) DEFAULT NULL,
   `description_photo` text,
-  `photo_main` tinyint(1) NOT NULL,
-  `photo_map` tinyint(1) NOT NULL,
-  `photo_location` tinyint(1) NOT NULL,
-  `photo_profile` tinyint(1) NOT NULL,
-  `url_photo` varchar(300) NOT NULL,
-  `code_photo` int(11) NOT NULL,
-  `travel_route_id` int(11) NOT NULL,
+  `photo_main` tinyint(1) DEFAULT NULL,
+  `photo_map` tinyint(1) DEFAULT NULL,
+  `photo_location` tinyint(1) DEFAULT NULL,
+  `photo_profile` tinyint(1) DEFAULT NULL,
+  `url_photo` varchar(300) DEFAULT NULL,
+  `code_photo` int(11) DEFAULT NULL,
+  `travel_route_id` int(11) DEFAULT NULL,
   `image_route` blob,
-  `image_route_content_type` varchar(300) NOT NULL
+  `image_route_content_type` varchar(300) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -138,7 +138,7 @@ CREATE TABLE `photo` (
 
 CREATE TABLE `qr` (
   `id` int(11) NOT NULL,
-  `qr_description` varchar(500) NOT NULL,
+  `qr_description` varchar(500) DEFAULT NULL,
   `data_1` double DEFAULT NULL,
   `data_2` double DEFAULT NULL,
   `data_3` double DEFAULT NULL
@@ -152,21 +152,21 @@ CREATE TABLE `qr` (
 
 CREATE TABLE `travel_route` (
   `id` int(11) NOT NULL,
-  `title_route` varchar(50) NOT NULL,
-  `destination` varchar(50) NOT NULL,
-  `continent` enum('ASIA','AFRICA','EUROPE','AUSTRALIA','AMERICANORTH','AMERICASOUTH','ANTARCTICA') NOT NULL,
-  `days` int(11) NOT NULL,
-  `weeks` int(11) NOT NULL,
+  `title_route` varchar(50) DEFAULT NULL,
+  `destination` varchar(50) DEFAULT NULL,
+  `continent` enum('ASIA','AFRICA','EUROPE','AUSTRALIA','AMERICANORTH','AMERICASOUTH','ANTARCTICA') DEFAULT NULL,
+  `days` int(11) DEFAULT NULL,
+  `weeks` int(11) DEFAULT NULL,
   `location_id` int(11) DEFAULT NULL,
   `season` enum('SPRING','SUMMER','AUTUMN','WINTER') DEFAULT NULL,
-  `budget` double NOT NULL,
-  `category` enum('CHEAP','LUXURY','LONELY','FRIENDS','ROMANTIC','KIDS','SPORT','RELAXATION','ART','FOOD','NATURE','CITY') NOT NULL,
-  `category_two` enum('CHEAP','LUXURY','LONELY','FRIENDS','ROMANTIC','KIDS','SPORT','RELAXATION','ART','FOOD','NATURE','CITY') NOT NULL,
-  `value_average` double NOT NULL,
-  `description_route_summary` text NOT NULL,
+  `budget` double DEFAULT NULL,
+  `category` enum('CHEAP','LUXURY','LONELY','FRIENDS','ROMANTIC','KIDS','SPORT','RELAXATION','ART','FOOD','NATURE','CITY') DEFAULT NULL,
+  `category_two` enum('CHEAP','LUXURY','LONELY','FRIENDS','ROMANTIC','KIDS','SPORT','RELAXATION','ART','FOOD','NATURE','CITY') DEFAULT NULL,
+  `value_average` double DEFAULT NULL,
+  `description_route_summary` text,
   `description_route` text,
-  `steps` int(11) NOT NULL,
-  `summary_map` varchar(300) NOT NULL,
+  `steps` int(11) DEFAULT NULL,
+  `summary_map` varchar(300) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `user_profile_id` int(11) DEFAULT NULL,
@@ -212,7 +212,7 @@ CREATE TABLE `user_profile` (
 
 INSERT INTO `user_profile` (`id`, `first_name`, `last_name`, `email`, `telephone`, `user_name`, `password`, `age`, `biography`, `created_at`, `updated_at`, `photo_id`, `follower`, `followed`) VALUES
 (1, 'Anna', 'Times', 'annatimes@gmail.com', 555555555, 'annatravaller', '12345', 25, 'Estoy empezando a viajar, poco puedo contar', NULL, NULL, NULL, 0, 0),
-(2, 'Erik', 'Olson', 'erikolson@gmail.com', 555555555, 'worldtraveller', '12345', NULL, 'VOlando voy volando vengo por el camino yo me entretengo', NULL, NULL, NULL, 0, 0);
+(2, 'Erik', 'Olson', 'erikolson@gmail.com', 555555555, 'worldtraveller', '12345', 38, 'Volando voy volando vengo por el camino yo me entretengo', NULL, NULL, NULL, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -222,10 +222,10 @@ INSERT INTO `user_profile` (`id`, `first_name`, `last_name`, `email`, `telephone
 
 CREATE TABLE `valuation` (
   `id` int(11) NOT NULL,
-  `comment` text NOT NULL,
-  `rating` int(11) NOT NULL,
-  `travel_route_id` int(11) NOT NULL,
-  `user_profile_id` int(11) NOT NULL
+  `comment` text,
+  `rating` int(11) DEFAULT NULL,
+  `travel_route_id` int(11) DEFAULT NULL,
+  `user_profile_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
