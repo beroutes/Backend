@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-05-2020 a las 20:45:57
+-- Tiempo de generación: 23-05-2020 a las 19:01:41
 -- Versión del servidor: 10.1.40-MariaDB
 -- Versión de PHP: 7.3.5
 
@@ -32,9 +32,23 @@ CREATE TABLE `country` (
   `id` int(11) NOT NULL,
   `country_name` varchar(50) DEFAULT NULL,
   `region` varchar(100) DEFAULT NULL,
-  `city` varchar(50) DEFAULT NULL,
-  `travel_route_id` int(11) DEFAULT NULL
+  `city` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `country`
+--
+
+INSERT INTO `country` (`id`, `country_name`, `region`, `city`) VALUES
+(1, 'Unites States', NULL, 'San Francisco'),
+(2, 'Turkey', 'Cappadocia', NULL),
+(3, 'Greece', NULL, 'Athens'),
+(4, 'Morocco', 'Rif', NULL),
+(5, 'Greenland', 'Tassiusaq', NULL),
+(6, 'Italia', 'Toscana', 'Florencia'),
+(7, 'Portugal', NULL, 'Lisboa'),
+(8, 'Japon', NULL, 'Tokio'),
+(9, 'Spain', 'Andalucia', 'Tarifa');
 
 -- --------------------------------------------------------
 
@@ -178,8 +192,8 @@ CREATE TABLE `travel_route` (
 --
 
 INSERT INTO `travel_route` (`id`, `title_route`, `destination`, `continent`, `days`, `weeks`, `location_id`, `season`, `budget`, `category`, `category_two`, `value_average`, `description_route_summary`, `description_route`, `steps`, `summary_map`, `created_at`, `updated_at`, `user_profile_id`, `country_id`) VALUES
-(1, 'San Francisco. With my best friend', 'San Francisco. USA', 'AMERICANORTH', 5, 0, NULL, 'AUTUMN', 1000, 'FRIENDS', 'CITY', 9.2, 'Lorem Ipsun istin icole hasta que fisticolico de nimiluti.', 'Lorem Ipsun istin icole hasta que fisticolico de nimiluti. Bicuris di Cadi sa rese poli que kala pragmatas istem filis mu ke su aresi\r\nTempus pharetra suscipit vulputate mus elementum cubilia parturient sociis, sollicitudin nisl aptent facilisi gravida\r\n\r\nRouts markers:\r\n\r\n1- Nevsehir\r\n2- Goreme\r\n3- Ahipur\r\n4- Agios Nicolao\r\n5- Naxos\r\n6- Amorgos\r\n7-Rethinno\r\n', 5, 'Día 1: Union Square, Fisherman\'s Wharf y Marina District; Día 2: Twin Peaks, Golden Gate Park, Alamo Square.;Día 3: Sausalito, Presidio Park y Castro; Día 4: Isla Alcatraz, Chinatown y Coit Tower; Día 5: Yerba Buena o Point Reyes.', '2020-04-13 00:00:00', NULL, 1, 0),
-(2, 'Cappadocia bella.', 'Cappadocia.Turkey', 'ASIA', 14, 2, NULL, 'SPRING', 1500, 'ROMANTIC', 'NATURE', 9.3, 'ac blandit netus ultricies arcu aliquet inceptos eget sollicitudin', 'Lorem Ipsun istin icole hasta que fisticolico de nimiluti. Bicuris di Cadi sa rese poli que kala pragmatas istem filis mu ke su aresi\r\nTempus pharetra suscipit vulputate mus elementum cubilia parturient sociis, sollicitudin nisl aptent facilisi gravida\r\n\r\nRouts markers:\r\n\r\n1- Nevsehir\r\n2- Goreme\r\n3- Ahipur\r\n4- Agios Nicolao\r\n5- Naxos\r\n6- Amorgos\r\n7-Rethinno\r\n', 4, '1:Museo al Aire Libre de Göreme.; 2:Castillo de Uchisar.; 3:Ortahisar.; 4:Ürgup.', '2020-04-03 00:00:00', '2020-04-27 00:00:00', 2, 0),
+(1, 'San Francisco. With my best friend', 'San Francisco. USA', 'AMERICANORTH', 5, 0, NULL, 'AUTUMN', 1000, 'FRIENDS', 'CITY', 9.2, 'Lorem Ipsun istin icole hasta que fisticolico de nimiluti.', 'Lorem Ipsun istin icole hasta que fisticolico de nimiluti. Bicuris di Cadi sa rese poli que kala pragmatas istem filis mu ke su aresi\r\nTempus pharetra suscipit vulputate mus elementum cubilia parturient sociis, sollicitudin nisl aptent facilisi gravida\r\n\r\nRouts markers:\r\n\r\n1- Nevsehir\r\n2- Goreme\r\n3- Ahipur\r\n4- Agios Nicolao\r\n5- Naxos\r\n6- Amorgos\r\n7-Rethinno\r\n', 5, 'Día 1: Union Square, Fisherman\'s Wharf y Marina District; Día 2: Twin Peaks, Golden Gate Park, Alamo Square.;Día 3: Sausalito, Presidio Park y Castro; Día 4: Isla Alcatraz, Chinatown y Coit Tower; Día 5: Yerba Buena o Point Reyes.', '2020-04-13 00:00:00', NULL, 1, NULL),
+(2, 'Cappadocia bella.', 'Cappadocia.Turkey', 'ASIA', 14, 2, NULL, 'SPRING', 1500, 'ROMANTIC', 'NATURE', 9.3, 'ac blandit netus ultricies arcu aliquet inceptos eget sollicitudin', 'Lorem Ipsun istin icole hasta que fisticolico de nimiluti. Bicuris di Cadi sa rese poli que kala pragmatas istem filis mu ke su aresi\r\nTempus pharetra suscipit vulputate mus elementum cubilia parturient sociis, sollicitudin nisl aptent facilisi gravida\r\n\r\nRouts markers:\r\n\r\n1- Nevsehir\r\n2- Goreme\r\n3- Ahipur\r\n4- Agios Nicolao\r\n5- Naxos\r\n6- Amorgos\r\n7-Rethinno\r\n', 4, '1:Museo al Aire Libre de Göreme.; 2:Castillo de Uchisar.; 3:Ortahisar.; 4:Ürgup.', '2020-04-03 00:00:00', '2020-04-27 00:00:00', 2, NULL),
 (3, 'Greenland gift to the senses', 'Greenland', 'AMERICANORTH', 15, 2, NULL, 'SPRING', 2500, 'ROMANTIC', 'NATURE', 9.4, 'Lorem Ipsun istin icole hasta que fisticolico de nimiluti.', 'Elementum cubilia parturient sociis. Lorem Ipsun istin icole hasta que fisticolico de nimiluti. Bicuris di Cadi sa rese poli que kala pragmatas istem filis mu ke su aresi\\\\\\\\r\\\\\\\\nTempus pharetra suscipit vulputate mus elementum cubilia parturient sociis', 9, '1 El valle glaciar de las Mil Flores; 2 Glaciar Kiattut; 3 Mercado de pescadores en Narsaq; 4 Glaciar Qaleraliq; 5 Lago Tasersuatsiaq; 6 Mirador al Inlandis; 7 Igaliku; 8 Glaciar Qooroq; 9 Narsarsuaq Museum', NULL, NULL, 2, NULL),
 (4, 'Bike trip in morocco', 'Morocco', 'AFRICA', 7, 1, NULL, 'WINTER', 600, 'FRIENDS', 'SPORT', 9.1, 'Lorem Ipsun istin icole hasta que fisticolico de nimiluti.', 'Elementum cubilia parturient sociis. Lorem Ipsun istin icole hasta que fisticolico de nimiluti. Bicuris di Cadi sa rese poli que kala pragmatas istem filis mu ke su aresi\\\\\\\\r\\\\\\\\nTempus pharetra suscipit vulputate mus elementum cubilia parturient sociis', 6, '1 Chefchauen, pintada de azul.; 2 Subida al Yebel El Kelaa; 3 Camino de Alhucemas.; 4 Parque Nacional de Alhucemas; 5 Senderismo en el Rif; 6 Camino, Nador.', NULL, NULL, 1, NULL);
 
@@ -308,7 +322,7 @@ ALTER TABLE `valuation`
 -- AUTO_INCREMENT de la tabla `country`
 --
 ALTER TABLE `country`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `favorite`
@@ -396,7 +410,7 @@ ALTER TABLE `photo`
 ALTER TABLE `travel_route`
   ADD CONSTRAINT `travel_route_ibfk_2` FOREIGN KEY (`location_id`) REFERENCES `location` (`id`) ON UPDATE CASCADE,
   ADD CONSTRAINT `travel_route_ibfk_3` FOREIGN KEY (`user_profile_id`) REFERENCES `user_profile` (`id`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `travel_route_ibfk_4` FOREIGN KEY (`country_id`) REFERENCES `country` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
+  ADD CONSTRAINT `travel_route_ibfk_4` FOREIGN KEY (`country_id`) REFERENCES `country` (`id`) ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `user_profile`
