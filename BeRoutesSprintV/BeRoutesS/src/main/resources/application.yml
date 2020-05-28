@@ -1,20 +1,48 @@
-######
-# H2
-#spring:
-#  h2:
-#    console:
-#      enabled: true
-#     path: /h2-console
-# Datasource
-#  datasource:
-#    url: jdbc:h2:file:~/beroutessbd
-#   username: user
-#  password: user
-#    driver-class-name: org.h2.Driver
-#  jpa:
-#    hibernate:
-#      ddl-auto: update
-
-#jwt:
-#  secret: 12345
- 
+spring:
+    profiles:
+        active: prod
+---
+spring:
+  profiles: dev
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  datasource:
+    url: jdbc:h2:file:~/beroutessbd
+    #username: root
+    #password: root
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update      
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: debug
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
+---
+spring:
+  profiles: prod
+  datasource:
+    url: jdbc:mysql://beroutesprod.ciat5lecu8jf.us-east-1.rds.amazonaws.com:3306/beroutesprod
+    username: admin
+    password: Beroutes123?
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+     ddl-auto: update
+    show-sql: true            
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: debug
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE

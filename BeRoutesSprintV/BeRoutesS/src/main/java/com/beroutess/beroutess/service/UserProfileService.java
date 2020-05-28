@@ -56,7 +56,7 @@ public class UserProfileService {
 		
 		//userProfileSaved.setCountry(userProfile.getCountry());
 		//userProfileSaved.setPhoto(userProfile.getPhoto());
-		//userProfileSaved.setTravelRoutes(userProfile.getTravelRoutes());
+		userProfileSaved.setTravelRoutes(userProfile.getTravelRoutes());
 		//userProfileSaved.setValuations(userProfile.getValuations());
 	    //userProfileSaved.setFollowings(userProfile.getFollowings());
 		userProfileSaved.setFavorites(userProfile.getFavorites());

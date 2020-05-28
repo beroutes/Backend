@@ -5,7 +5,6 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.beroutess.beroutess.domain.Country;
 import com.beroutess.beroutess.domain.Favorite;
 
 import com.beroutess.beroutess.repository.FavoriteRepository;

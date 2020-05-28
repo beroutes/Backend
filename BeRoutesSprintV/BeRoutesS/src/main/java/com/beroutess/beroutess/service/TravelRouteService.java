@@ -69,7 +69,7 @@ public class TravelRouteService {
 		travelRouteSaved.setSummaryMap(travelRoute.getSummaryMap());
 		travelRouteSaved.setCreatedAt(travelRoute.getCreatedAt());
 		travelRouteSaved.setUpdatedAt(travelRoute.getUpdatedAt());
-		travelRouteSaved.setQrActivation(travelRoute.getQrActivation());
+		//travelRouteSaved.setQrActivation(travelRoute.getQrActivation());
 		
 		/*
 		travelRouteSaved.setCountry(travelRoute.getCountry());
@@ -83,7 +83,7 @@ public class TravelRouteService {
 		travelRouteSaved.setValuations(travelRoute.getValuations());
 		travelRouteSaved.setQrs(travelRoute.getQrs());
 		*/
-	
+		travelRouteSaved.setUserProfile(travelRoute.getUserProfile());
 		
 		travelRouteRepository.save(travelRouteSaved);
 		return travelRouteSaved;
@@ -110,7 +110,7 @@ public class TravelRouteService {
 		newTravelRoute0.setSummaryMap("Día 1: Union Square, Fisherman's Wharf y Marina District; Día 2: Twin Peaks, Golden Gate Park, Alamo Square.;Día 3: Sausalito, Presidio Park y Castro; Día 4: Isla Alcatraz, Chinatown y Coit Tower; Día 5: Yerba Buena o Point Reyes.");
 		newTravelRoute0.setCreatedAt(null);
 		newTravelRoute0.setUpdatedAt(null);
-		newTravelRoute0.setQrActivation(false);
+		//newTravelRoute0.setQrActivation(false);
 		
 		travelRouteRepository.save(newTravelRoute0);
 		
@@ -132,7 +132,7 @@ public class TravelRouteService {
 		newTravelRoute1.setSummaryMap("1:Museo al Aire Libre de Göreme.; 2:Castillo de Uchisar.; 3:Ortahisar.; 4:Ürgup.");
 		newTravelRoute1.setCreatedAt(null);
 		newTravelRoute1.setUpdatedAt(null);
-		newTravelRoute1.setQrActivation(false);
+		//newTravelRoute1.setQrActivation(false);
 		
 		travelRouteRepository.save(newTravelRoute1);
 		
@@ -153,14 +153,14 @@ public class TravelRouteService {
 		newTravelRoute2.setSummaryMap("1 El valle glaciar de las Mil Flores; 2 Glaciar Kiattut; 3 Mercado de pescadores en Narsaq; 4 Glaciar Qaleraliq; 5 Lago Tasersuatsiaq; 6 Mirador al Inlandis; 7 Igaliku; 8 Glaciar Qooroq; 9 Narsarsuaq Museum");
 		newTravelRoute2.setCreatedAt(null);
 		newTravelRoute2.setUpdatedAt(null);
-		newTravelRoute2.setQrActivation(false);
+		//newTravelRoute2.setQrActivation(false);
 		
 		travelRouteRepository.save(newTravelRoute2);
 		
 		TravelRoute newTravelRoute3 = new TravelRoute();
 		newTravelRoute3.setTitleRoute("Bike trip in morocco");
 		newTravelRoute3.setDestination("Morocco");
-		newTravelRoute3.setContinent(Continent.EUROPE);
+		newTravelRoute3.setContinent(Continent.AFRICA);
 		newTravelRoute3.setDays(7);
 		newTravelRoute3.setWeeks(1);
 		newTravelRoute3.setSeason(Season.WINTER);
@@ -174,13 +174,19 @@ public class TravelRouteService {
 		newTravelRoute3.setSummaryMap("1 Chefchauen, pintada de azul.; 2 Subida al Yebel El Kelaa; 3 Camino de Alhucemas.; 4 Parque Nacional de Alhucemas; 5 Senderismo en el Rif; 6 Camino, Nador.");
 		newTravelRoute3.setCreatedAt(null);
 		newTravelRoute3.setUpdatedAt(null);
-		newTravelRoute3.setQrActivation(false);
+		//newTravelRoute3.setQrActivation(false);
 		
 		travelRouteRepository.save(newTravelRoute3);
 		
 		
 		
 		return travelRouteRepository.findAll();
+	}
+	
+	//busquedas
+	
+	public List<TravelRoute>findByDestination(String destination){
+		return travelRouteRepository.findByDestinationContaining(destination);
 	}
 	
 }

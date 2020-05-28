@@ -82,9 +82,11 @@ public class TravelRoute {
 
 	    @Column(name = "updated_at")
 	    LocalDate updatedAt;
-
+/*
 	    @Column(name = "qr_activation")
 	    Boolean qrActivation;
+	    
+	*/
 	    
 	    /*
         //o
@@ -120,12 +122,15 @@ public class TravelRoute {
 	    @OneToMany(mappedBy = "travelRoute")
 	    @JsonBackReference
 	    List<Qr>qrs;
+	    */ 
 	    
 	    //o
 	    @ManyToOne
-	    @JsonBackReference
+	    //@JsonBackReference
+	    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 	    UserProfile userProfile;
-*/
+	    
+        
 		public Long getId() {
 			return id;
 		}
@@ -193,10 +198,11 @@ public class TravelRoute {
 		public LocalDate getUpdatedAt() {
 			return updatedAt;
 		}
-
+/*
 		public Boolean getQrActivation() {
 			return qrActivation;
 		}
+*/
 /*
 		public Country getCountry() {
 			return country;
@@ -221,11 +227,12 @@ public class TravelRoute {
 		public List<Qr> getQrs() {
 			return qrs;
 		}
-
+*/
 		public UserProfile getUserProfile() {
 			return userProfile;
 		}
-*/
+		
+
 		public void setId(Long id) {
 			this.id = id;
 		}
@@ -293,10 +300,12 @@ public class TravelRoute {
 		public void setUpdatedAt(LocalDate updatedAt) {
 			this.updatedAt = updatedAt;
 		}
-
+/*
 		public void setQrActivation(Boolean qrActivation) {
 			this.qrActivation = qrActivation;
 		}
+*/
+		
 /*
 		public void setCountry(Country country) {
 			this.country = country;
@@ -321,11 +330,10 @@ public class TravelRoute {
 		public void setQrs(List<Qr> qrs) {
 			this.qrs = qrs;
 		}
-
+   */
 		public void setUserProfile(UserProfile userProfile) {
 			this.userProfile = userProfile;
 		}
-	    
-	*/    
+	  
 
 }

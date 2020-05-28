@@ -37,7 +37,11 @@ public class TravelRouteController {
 	}
 	
 	@GetMapping(path = "/travelRoutes")	
-	List<TravelRoute> getTravelRoutes(){
+	List<TravelRoute> getTravelRoutes(
+			@RequestParam(required = false)String destination){
+		if(destination!=null) {
+			return travelRouteService.findByDestination(destination);
+		}else
 	
 		return travelRouteService.getTravelRoutes();
 	}
@@ -98,5 +102,7 @@ public class TravelRouteController {
 		
 		return travelRouteService.getTravelRoutes();
 	}
+	
+	//Get de busqueda 
 
 }

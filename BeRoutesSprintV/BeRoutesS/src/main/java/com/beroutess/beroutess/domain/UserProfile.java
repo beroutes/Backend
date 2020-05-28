@@ -14,8 +14,9 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Table(name = "user_profile")
@@ -70,12 +71,12 @@ public class UserProfile {
     @OneToOne(mappedBy = "userProfile")
     @JsonBackReference
     Photo photo;
-    
+    */
     //o
     @OneToMany(mappedBy = "userProfile")
-    @JsonManagedReference
+    //@JsonManagedReference
     List<TravelRoute>travelRoutes;
-    
+    /*
     //o
     @OneToMany(mappedBy = "userProfile")
     @JsonBackReference
@@ -89,7 +90,10 @@ public class UserProfile {
     
     //o
     @OneToMany(mappedBy ="userProfile")
-    //@JsonManagedReference
+    
+    @JsonManagedReference
+    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+    
     List<Favorite>favorites;
     //*/
 
@@ -152,11 +156,11 @@ public class UserProfile {
 	public Photo getPhoto() {
 		return photo;
 	}
-
+*/
 	public List<TravelRoute> getTravelRoutes() {
 		return travelRoutes;
 	}
-
+/*
 	public List<Valuation> getValuations() {
 		return valuations;
 	}
@@ -228,11 +232,11 @@ public class UserProfile {
 	public void setPhoto(Photo photo) {
 		this.photo = photo;
 	}
-
+*/
 	public void setTravelRoutes(List<TravelRoute> travelRoutes) {
 		this.travelRoutes = travelRoutes;
 	}
-
+/*
 	public void setValuations(List<Valuation> valuations) {
 		this.valuations = valuations;
 	}

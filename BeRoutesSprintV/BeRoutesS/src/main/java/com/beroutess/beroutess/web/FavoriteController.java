@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.beroutess.beroutess.domain.Country;
+
 import com.beroutess.beroutess.domain.Favorite;
 
 import com.beroutess.beroutess.service.FavoriteService;
