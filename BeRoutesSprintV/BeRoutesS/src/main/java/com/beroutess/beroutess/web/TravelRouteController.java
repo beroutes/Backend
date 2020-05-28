@@ -38,10 +38,25 @@ public class TravelRouteController {
 	
 	@GetMapping(path = "/travelRoutes")	
 	List<TravelRoute> getTravelRoutes(
-			@RequestParam(required = false)String destination){
+			@RequestParam(required = false)String destination,
+			@RequestParam(required = false)Double value,
+	        @RequestParam(required = false) Long favoritesId,
+	        @RequestParam(required = false) Long myRoutesId)
+	{
 		if(destination!=null) {
 			return travelRouteService.findByDestination(destination);
-		}else
+		}
+		if(value!=null) {
+			return travelRouteRepository.findByValueAverageGreaterThanEqual(value);
+		}
+		if(favoritesId!=null) {
+			return travelRouteRepository.findByFavorites_userProfile_idEquals(favoritesId);
+		}
+		if(myRoutesId!=null) {
+			return travelRouteRepository.findByUserProfile_idEquals(myRoutesId);
+		}
+		
+		else
 	
 		return travelRouteService.getTravelRoutes();
 	}

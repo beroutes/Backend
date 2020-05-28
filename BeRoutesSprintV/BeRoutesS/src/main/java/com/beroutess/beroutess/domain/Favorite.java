@@ -36,7 +36,7 @@ public class Favorite {
    //  /*
     //o //Molaría que enseñara solo el id el json
     @ManyToOne
-    //@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
     TravelRoute travelRoute;
 //*/
     //o    

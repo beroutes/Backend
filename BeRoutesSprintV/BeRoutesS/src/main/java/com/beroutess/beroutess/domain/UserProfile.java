@@ -75,6 +75,7 @@ public class UserProfile {
     //o
     @OneToMany(mappedBy = "userProfile")
     //@JsonManagedReference
+    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
     List<TravelRoute>travelRoutes;
     /*
     //o

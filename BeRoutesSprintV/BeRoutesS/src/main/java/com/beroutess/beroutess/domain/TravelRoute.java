@@ -97,7 +97,8 @@ public class TravelRoute {
 	    ///*
 	    //ooo//Muestra el array de locations
 	    @OneToMany(mappedBy ="travelRoute")
-	    @JsonManagedReference	  
+	    //@JsonManagedReference
+	    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 	    List<Location>locations;
 	    //*/
 	    ///*

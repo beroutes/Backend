@@ -186,7 +186,7 @@ public class TravelRouteService {
 	//busquedas
 	
 	public List<TravelRoute>findByDestination(String destination){
-		return travelRouteRepository.findByDestinationContaining(destination);
+		return travelRouteRepository.findByDestinationIgnoreCaseContaining(destination);
 	}
 	
 }

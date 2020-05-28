@@ -10,6 +10,8 @@ import com.beroutess.beroutess.domain.TravelRoute;
 
 @Service
 public interface TravelRouteRepository extends JpaRepository<TravelRoute, Long> {
-	List<TravelRoute>findByDestinationContaining(String destination);
-	//List<TravelRoute>findByUserProfile_favorite(Integer id);
+	List<TravelRoute>findByDestinationIgnoreCaseContaining(String destination);
+	List<TravelRoute>findByValueAverageGreaterThanEqual(Double value);
+	List<TravelRoute>findByFavorites_userProfile_idEquals(Long favoritesId);
+	List<TravelRoute>findByUserProfile_idEquals(Long myRoutesId);
 }
