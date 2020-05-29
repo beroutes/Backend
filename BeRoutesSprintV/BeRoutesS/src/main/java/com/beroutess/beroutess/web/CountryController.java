@@ -2,7 +2,7 @@ package com.beroutess.beroutess.web;
 
 import java.util.List;
 
-
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.beroutess.beroutess.domain.Country;
-
 import com.beroutess.beroutess.repository.CountryRepository;
 import com.beroutess.beroutess.service.CountryService;
 import com.beroutess.beroutess.web.error.CustomBeRoutesError;
@@ -79,7 +78,7 @@ public class CountryController
 		 return country.getId();
 	}
 	*/
-	
+	//@PreAuthorize(value = "hasRole('ROLE_TRAVELLER')")
 	@DeleteMapping(path="/country/{id}")
 	String deleteCountry(@PathVariable Long id) {
 		countryService.deleteCountry(id);
