@@ -37,6 +37,67 @@ public class TravelRouteController {
 	}
 	
 	@GetMapping(path = "/travelRoutes")	
+	List<TravelRoute> getTravelRoutes(){	
+		return travelRouteService.getTravelRoutes();
+	}
+	
+	// /// Gets con parámetros de busqueda
+	
+	
+	@GetMapping(path = "/travelRoutes/destination")	
+	List<TravelRoute> getTravelRoutes(
+			@RequestParam(required = false)String destination)
+	{
+		if(destination!=null) {
+			return travelRouteService.findByDestination(destination);
+		}
+		
+		else
+	
+		return travelRouteService.getTravelRoutes();
+	}
+	
+	@GetMapping(path = "/travelRoutes/value")	
+	List<TravelRoute> getTravelRoutes(			
+			@RequestParam(required = false)Double value)
+	{		
+		if(value!=null) {
+			return travelRouteRepository.findByValueAverageGreaterThanEqual(value);
+		}		
+		else
+	
+		return travelRouteService.getTravelRoutes();
+	}
+	
+	@GetMapping(path = "/travelRoutes/favoritesId")	
+	List<TravelRoute> getTravelRoutesFavorites(
+	        @RequestParam(required = false) Long favoritesId)
+	{
+		if(favoritesId!=null) {
+			return travelRouteRepository.findByFavorites_userProfile_idEquals(favoritesId);
+		}
+		else
+	
+		return travelRouteService.getTravelRoutes();
+	}
+	
+	@GetMapping(path = "/travelRoutes/myRoutesId")	
+	List<TravelRoute> getTravelRoutesMyRoutes(
+	        @RequestParam(required = false) Long myRoutesId)
+	{
+		if(myRoutesId!=null) {
+			return travelRouteRepository.findByUserProfile_idEquals(myRoutesId);
+		}
+		
+		else
+	
+		return travelRouteService.getTravelRoutes();
+	}
+	
+	
+	/*//Metodo que recogería en un get todo el get simple y el ede busqueda
+	 * 
+	@GetMapping(path = "/travelRoutes")	
 	List<TravelRoute> getTravelRoutes(
 			@RequestParam(required = false)String destination,
 			@RequestParam(required = false)Double value,
@@ -60,21 +121,19 @@ public class TravelRouteController {
 	
 		return travelRouteService.getTravelRoutes();
 	}
-/*
-	@GetMapping(path = "/travelRoutes")	
-	List<TravelRoute> getTravelRoutes(@RequestParam(required=false,name="userId")Integer id){
-		if(id != null){
-			return travelRouteRepository.findByUserProfile_favorite(id);
-		}else
-		return travelRouteService.getTravelRoutes();
-	}
-*/
+*/	
+	
+
+	
+	//Método que devuelve una ruta pero al ser opcional no le damos la opción de error por eso funciona mejor el siguiente método
 	/*
 	@GetMapping(path = "/travelRoute/{id}")
 	TravelRoute getTravelRoute (@PathVariable Long id) {
 		return travelRouteService.getTravelRoute(id);
 	}
 	*/
+	
+	
 	@GetMapping(path = "/travelRoute/{id}")
 	TravelRoute findById(@PathVariable Long id){
 		if (travelRouteService.findById(id).isPresent()) {
